@@ -1,0 +1,194 @@
+# Contenu français : traduction fidèle de content_en.yml, qui fait foi.
+# Toute modification est d'abord faite en anglais, puis reportée ici.
+# Mêmes conventions que content_en.yml (draft, champs vides masqués).
+
+lang: fr
+og_locale: fr_FR
+page_title: Sèdofi Hope Lanmayikpohoue - Page personnelle
+description: >-
+  Sèdofi Hope Lanmayikpohoue, doctorant et assistant d'enseignement en génie
+  informatique à l'UNSTIM, Bénin. Recherche en IA pour la sécurité logicielle :
+  détection statique de vulnérabilités, graphes de propriétés de code, réseaux
+  de neurones sur graphes.
+
+ui:
+  skip: Aller au contenu principal
+  nav_label: Sections
+  links_label: Liens
+  photo_alt: Portrait de Sèdofi Hope Lanmayikpohoue
+  email: Courriel
+  cv: CV (PDF)
+  theme_to_dark: Thème sombre
+  theme_to_light: Thème clair
+  language_label: Langue
+  pdf: PDF
+  colon: "\u00a0:"
+  last_updated: "Dernière mise à jour :"
+  date_format: fr
+  months: [janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
+
+languages:
+  - code: en-GB
+    label: English
+    url: /
+  - code: fr
+    label: Français
+    url: /fr/
+    current: true
+
+sidebar:
+  affiliation: UNSTIM, Bénin
+  research_line: >-
+    IA pour la sécurité logicielle : détection statique de vulnérabilités par
+    graphes de propriétés de code et réseaux de neurones sur graphes.
+  location: Abomey-Calavi, Bénin
+
+jsonld:
+  job_title: Doctorant et assistant d'enseignement en génie informatique
+  affiliation: Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques (UNSTIM)
+  alumni_of: École Nationale Supérieure de Génie Mathématique et Modélisation (ENSGMM)
+  knows_about:
+    - Sécurité logicielle
+    - Détection statique de vulnérabilités
+    - Graphes de propriétés de code
+    - Réseaux de neurones sur graphes
+    - Graphes de connaissances de sécurité
+    - IA pour la surveillance environnementale
+
+nav:
+  about: À propos
+  research: Recherche
+  news: Actualités
+  publications: Publications
+  talks: Communications
+  teaching: Enseignement
+  awards: Prix
+  education: Formation
+  experience: Expérience
+  skills: Compétences
+
+sections:
+  about: À propos
+  research: Axes de recherche
+  news: Actualités
+  publications: Publications
+  talks: Communications
+  teaching: Enseignement
+  awards: Prix et distinctions
+  education: Formation
+  experience: Expérience
+  skills: Compétences techniques
+
+about: |
+  Je suis doctorant et assistant d'enseignement en génie informatique à l'Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques (UNSTIM), au Bénin. J'ai obtenu mon diplôme d'ingénieur en 2024 à l'École Nationale Supérieure de Génie Mathématique et Modélisation (ENSGMM), avec un mémoire sur la détection automatique des vulnérabilités XSS et par injection SQL à l'aide des graphes de propriétés de code et des réseaux de neurones sur graphes, sous la direction du Dr Ing. Géraud Azehoun Pazou, qui encadre également mes travaux de doctorat.
+
+  Mes travaux se situent à l'intersection de l'intelligence artificielle et de la sécurité. Ils s'étendent aujourd'hui à la surveillance environnementale par l'IA, objet de mon projet de thèse sur les plans d'eau continentaux du Bénin. Mon nom de famille est Lanmayikpohoue.
+
+  Je suis ouvert aux collaborations et aux échanges, n'hésitez pas à me contacter.
+
+research:
+  - label: Sécurité logicielle
+    text: détection statique de vulnérabilités dans les applications web (graphes de propriétés de code, réseaux de neurones sur graphes hétérogènes), XSS et injection SQL
+  - label: Graphes de connaissances de sécurité
+    text: modélisation CVE-CWE-CPE, prédiction de liens inductive
+  - label: IA pour la surveillance environnementale
+    text: télédétection, modélisation hydrodynamique et apprentissage automatique appliqués aux plans d'eau continentaux (projet de thèse)
+  - label: Vision par ordinateur pour la robotique
+    text: modèles de perception pour robots agricoles
+
+# Ordre antichronologique, la plus récente en haut.
+news:
+  - date: octobre 2026 # TODO confirmer les dates exactes de CARI 2026
+    text: Présentation de notre article sur les transformers sur graphes hétérogènes pour la détection de vulnérabilités, CARI 2026, Cotonou, Bénin.
+  - date: "2026"
+    text: Notre article **VulHGT** est accepté à **CARI 2026** (Springer LNCS).
+  - date: "2026"
+    draft: true # TODO confirmer le statut (acceptés ou soumis), puis retirer draft
+    text: "[Résumés acceptés / soumis] au colloque scientifique de l'UNSTIM : détection de vulnérabilités par graphes, et vision par ordinateur pour la robotique agricole."
+  - date: novembre 2025
+    text: Animation d'un atelier pratique sur la génération augmentée par recherche au Benin Workshop on Artificial Intelligence (BWAI 2025), Université d'Abomey-Calavi.
+  - date: octobre 2025
+    text: Troisième prix du Hackathon IA 2025 de l'ASIN Bénin.
+  - date: août 2025
+    text: Participation à l'ACP Summer School 2025 sur la programmation par contraintes, Abomey-Calavi.
+  - date: juin 2025
+    text: Finaliste du HackerLab 2025, compétition nationale de cybersécurité de l'ASIN Bénin.
+  - date: février 2025
+    text: Début comme assistant d'enseignement en génie informatique à l'UNSTIM.
+
+publications:
+  conference_label: Conférences
+  journal_label: Revues
+  # Les titres et références bibliographiques ne se traduisent pas :
+  # recopier à l'identique les entrées de content_en.yml.
+  conference:
+    - venue: CARI'26
+      draft: true # TODO titre complet, auteurs et numéro d'édition, puis retirer draft
+      title: "[Full title of the paper, as it will appear at Springer]"
+      authors:
+        - name: "[Author]"
+        - name: Sèdofi Hope Lanmayikpohoue
+          me: true
+      reference: "In *Proceedings of the [number] African Conference on Research in Computer Science and Applied Mathematics (CARI)*, October 2026. Lecture Notes in Computer Science, Springer."
+      pdf: ""
+  journal: []
+
+talks:
+  - title: "[Titre du résumé sur la détection de vulnérabilités]"
+    draft: true # TODO titre et date
+    venue: Colloque scientifique, UNSTIM, Bénin, [date].
+  - title: "[Titre du résumé sur la vision par ordinateur pour la robotique agricole]"
+    draft: true # TODO titre et date
+    venue: Colloque scientifique, UNSTIM, Bénin, [date].
+  - title: Créez votre chatbot documentaire avec le RAG
+    kind: atelier
+    venue: Benin Workshop on Artificial Intelligence (BWAI 2025), Université d'Abomey-Calavi, 17 au 21 novembre 2025.
+
+teaching:
+  role: Assistant d'enseignement
+  place: UNSTIM, Bénin
+  period: février 2025 à aujourd'hui
+  courses: Algorithmique ; programmation Python (CPGE, première année) ; méthodes numériques avec MATLAB et Octave (CPGE, deuxième année).
+  other: Participation à la conception d'exercices, à la correction des évaluations et à l'encadrement de projets étudiants et de stagiaires.
+
+awards:
+  - date: octobre 2025
+    text: Troisième prix, Hackathon IA 2025, ASIN Bénin
+    count: "" # ex. "24 équipes"
+  - date: juin 2025
+    text: Finaliste, HackerLab 2025, ASIN Bénin
+    count: ""
+  - date: septembre 2024
+    text: Finaliste, HackerLab 2024, ASIN Bénin
+    count: ""
+  - date: octobre 2023
+    text: Finaliste, HackerLab 2023, ASIN Bénin
+    count: ""
+  - date: avril 2023
+    text: Deuxième prix, CTF 24HackBJ 2023, EMES SARL
+    count: ""
+
+education:
+  - period: En cours # TODO remplacer par "[année] à aujourd'hui"
+    text: "Doctorat en génie informatique, UNSTIM, Bénin. Projet de thèse sur la surveillance des plans d'eau continentaux par l'IA. Directeur : Dr Ing. Géraud Azehoun Pazou."
+  - period: 2021 à 2024
+    text: "Diplôme d'ingénieur de conception en Informatique, Logistique et Recherche Opérationnelle, ENSGMM, Abomey, Bénin. Mémoire : *Sécurité des applications web : application des graphes de propriétés de code et des réseaux de neurones sur graphes pour la détection automatique des vulnérabilités XSS et SQLi*."
+  - period: 2019 à 2021
+    text: Classes préparatoires aux écoles d'ingénieur, INSPEI, Abomey, Bénin.
+
+experience:
+  - period: août 2025 à aujourd'hui
+    text: "**COSIT Bénin**, Abomey-Calavi. Développeur spécialiste en cybersécurité. Tests de sécurité d'applications web et développement mobile."
+  - period: janvier 2025 à août 2025
+    text: "**EMES SARL**, Cotonou. Développeur backend et IA. Backend de microservice, API REST de traitement de données, recherches sur les systèmes RAG."
+  - period: août 2023 à octobre 2023
+    text: "**MIFY SARL**, Abomey-Calavi. Développeur mobile, stage."
+
+# Section facultative. Mettre "" pour la masquer.
+skills: >-
+  Python, Dart, C, JavaScript. Apprentissage profond, réseaux de neurones sur
+  graphes, génération augmentée par recherche. Analyse statique avec Joern, tests
+  d'intrusion web, OWASP Top 10. Flutter, FastAPI, PyTorch. Linux, Git, Docker.
+
+footer:
+  location: Abomey-Calavi, Bénin

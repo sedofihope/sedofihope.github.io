@@ -1,0 +1,212 @@
+{%- assign data_key = "content_" | append: page.lang_key -%}
+{%- assign c = site.data[data_key] -%}
+{%- assign photo_file = site.static_files | where: "path", site.photo | first -%}
+{%- assign cv_file = site.static_files | where: "path", site.cv | first -%}
+
+{%- comment -%} Entries marked `draft: true` are kept in the data but never shown. {%- endcomment -%}
+{%- assign news = c.news | where_exp: "i", "i.draft != true" -%}
+{%- assign pubs_conf = c.publications.conference | where_exp: "i", "i.draft != true" -%}
+{%- assign pubs_journal = c.publications.journal | where_exp: "i", "i.draft != true" -%}
+{%- assign pubs_count = pubs_conf.size | plus: pubs_journal.size -%}
+{%- assign talks = c.talks | where_exp: "i", "i.draft != true" -%}
+{%- assign awards = c.awards | where_exp: "i", "i.draft != true" -%}
+{%- assign education = c.education | where_exp: "i", "i.draft != true" -%}
+{%- assign experience = c.experience | where_exp: "i", "i.draft != true" -%}
+
+{%- capture nav_ids -%}about{% if c.research.size > 0 %},research{% endif %}{% if news.size > 0 %},news{% endif %}{% if pubs_count > 0 %},publications{% endif %}{% if talks.size > 0 %},talks{% endif %}{% if c.teaching %},teaching{% endif %}{% if awards.size > 0 %},awards{% endif %}{% if education.size > 0 %},education{% endif %}{% if experience.size > 0 %},experience{% endif %}{% if c.skills != "" %},skills{% endif %}{%- endcapture -%}
+{%- assign nav_ids = nav_ids | split: "," -%}
+<!DOCTYPE html>
+<html lang="{{ c.lang }}">
+<head>
+{% include head.html c=c photo=photo_file %}
+</head>
+<body>
+  <a class="skip-link" href="#main">{{ c.ui.skip }}</a>
+
+  <nav class="topnav" aria-label="{{ c.ui.nav_label }}">
+    <div class="topnav-inner">
+      <ul>
+{%- for id in nav_ids %}
+        <li><a href="#{{ id }}">{{ c.nav[id] }}</a></li>
+{%- endfor %}
+      </ul>
+    </div>
+  </nav>
+
+  <div class="layout" id="top">
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <div class="profile">
+{%- if photo_file %}
+          <img class="avatar" src="{{ site.photo | relative_url }}" alt="{{ c.ui.photo_alt }}" width="600" height="600">
+{%- else %}
+          <div class="avatar avatar-initials" role="img" aria-label="{{ site.author.name }}">SH</div>
+{%- endif %}
+          <div class="profile-text">
+            <h1 class="name">{{ site.author.name }}</h1>
+            <p class="affiliation">{{ c.sidebar.affiliation }}</p>
+          </div>
+        </div>
+        <p class="research-line">{{ c.sidebar.research_line }}</p>
+        <p class="location">{% include icon.html name="location" %}<span>{{ c.sidebar.location }}</span></p>
+
+        <ul class="links" aria-label="{{ c.ui.links_label }}">
+          <li><a href="mailto:{{ site.author.email }}">{% include icon.html name="email" %}<span>{{ c.ui.email }}</span></a></li>
+          <li><a href="https://orcid.org/{{ site.author.orcid }}" rel="me">{% include icon.html name="orcid" %}<span>ORCID</span></a></li>
+          <li><a href="https://github.com/{{ site.author.github }}" rel="me">{% include icon.html name="github" %}<span>GitHub</span></a></li>
+          <li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" rel="me">{% include icon.html name="linkedin" %}<span>LinkedIn</span></a></li>
+{%- if site.author.google_scholar %}
+          <li><a href="https://scholar.google.com/citations?user={{ site.author.google_scholar }}" rel="me">{% include icon.html name="scholar" %}<span>Google Scholar</span></a></li>
+{%- endif %}
+{%- if site.author.dblp %}
+          <li><a href="https://dblp.org/pid/{{ site.author.dblp }}.html" rel="me">{% include icon.html name="scholar" %}<span>DBLP</span></a></li>
+{%- endif %}
+{%- if cv_file %}
+          <li><a href="{{ site.cv | relative_url }}" type="application/pdf">{% include icon.html name="cv" %}<span>{{ c.ui.cv }}</span></a></li>
+{%- endif %}
+        </ul>
+
+        <div class="controls">
+          <ul class="lang-switch" aria-label="{{ c.ui.language_label }}">
+{%- for l in c.languages %}
+            <li>{% if l.current %}<a href="{{ l.url | relative_url }}" aria-current="page">{{ l.label }}</a>{% else %}<a href="{{ l.url | relative_url }}" hreflang="{{ l.code }}" lang="{{ l.code }}">{{ l.label }}</a>{% endif %}</li>
+{%- endfor %}
+          </ul>
+          <button type="button" class="theme-toggle" id="theme-toggle" hidden data-to-dark="{{ c.ui.theme_to_dark }}" data-to-light="{{ c.ui.theme_to_light }}"></button>
+        </div>
+      </div>
+    </aside>
+
+    <div class="content">
+      <main id="main" tabindex="-1">
+        <section id="about" aria-labelledby="about-h">
+          <h2 id="about-h">{{ c.sections.about }}</h2>
+          {{ c.about | markdownify }}
+        </section>
+
+{%- if c.research.size > 0 %}
+        <section id="research" aria-labelledby="research-h">
+          <h2 id="research-h">{{ c.sections.research }}</h2>
+          <ul class="plain-list">
+{%- for r in c.research %}
+            <li><strong>{{ r.label }}{{ c.ui.colon }}</strong> {% include md.html text=r.text %}</li>
+{%- endfor %}
+          </ul>
+        </section>
+{%- endif %}
+
+{%- if news.size > 0 %}
+        <section id="news" aria-labelledby="news-h">
+          <h2 id="news-h">{{ c.sections.news }}</h2>
+          <ul class="dated">
+{%- for n in news %}
+            <li><span class="date">{{ n.date }}</span><span class="entry">{% include md.html text=n.text %}</span></li>
+{%- endfor %}
+          </ul>
+        </section>
+{%- endif %}
+
+{%- if pubs_count > 0 %}
+        <section id="publications" aria-labelledby="publications-h">
+          <h2 id="publications-h">{{ c.sections.publications }}</h2>
+{%- assign groups = "conference,journal" | split: "," %}
+{%- for g in groups %}
+{%- if g == "conference" %}{% assign items = pubs_conf %}{% assign label = c.publications.conference_label %}{% else %}{% assign items = pubs_journal %}{% assign label = c.publications.journal_label %}{% endif %}
+{%- if items.size > 0 %}
+          <h3>{{ label }}</h3>
+          <ul class="pubs">
+{%- for p in items %}
+            <li class="pub" lang="en">
+              <span class="venue">{{ p.venue }}</span>
+              <div class="pub-body">
+                <p class="pub-title">{{ p.title }}</p>
+                <p class="pub-authors">{% for a in p.authors %}{% if a.me %}<strong>{{ a.name }}</strong>{% else %}{{ a.name }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}.</p>
+                <p class="pub-ref">{% include md.html text=p.reference %}</p>
+{%- if p.pdf and p.pdf != "" %}
+                <p class="pub-links"><a href="{{ p.pdf | relative_url }}" type="application/pdf">{{ c.ui.pdf }}</a></p>
+{%- endif %}
+              </div>
+            </li>
+{%- endfor %}
+          </ul>
+{%- endif %}
+{%- endfor %}
+        </section>
+{%- endif %}
+
+{%- if talks.size > 0 %}
+        <section id="talks" aria-labelledby="talks-h">
+          <h2 id="talks-h">{{ c.sections.talks }}</h2>
+          <ul class="plain-list">
+{%- for t in talks %}
+            <li><strong>{{ t.title }}</strong>{% if t.kind %} ({{ t.kind }}){% endif %}. {% include md.html text=t.venue %}</li>
+{%- endfor %}
+          </ul>
+        </section>
+{%- endif %}
+
+{%- if c.teaching %}
+        <section id="teaching" aria-labelledby="teaching-h">
+          <h2 id="teaching-h">{{ c.sections.teaching }}</h2>
+          <p><strong>{{ c.teaching.role }}</strong>, {{ c.teaching.place }} <span class="muted">({{ c.teaching.period }})</span></p>
+          <p>{% include md.html text=c.teaching.courses %}</p>
+          <p>{% include md.html text=c.teaching.other %}</p>
+        </section>
+{%- endif %}
+
+{%- if awards.size > 0 %}
+        <section id="awards" aria-labelledby="awards-h">
+          <h2 id="awards-h">{{ c.sections.awards }}</h2>
+          <ul class="dated">
+{%- for a in awards %}
+            <li><span class="date">{{ a.date }}</span><span class="entry">{% include md.html text=a.text %}{% if a.count and a.count != "" %} ({{ a.count }}){% endif %}</span></li>
+{%- endfor %}
+          </ul>
+        </section>
+{%- endif %}
+
+{%- if education.size > 0 %}
+        <section id="education" aria-labelledby="education-h">
+          <h2 id="education-h">{{ c.sections.education }}</h2>
+          <ul class="dated">
+{%- for e in education %}
+            <li><span class="date">{{ e.period }}</span><span class="entry">{% include md.html text=e.text %}</span></li>
+{%- endfor %}
+          </ul>
+        </section>
+{%- endif %}
+
+{%- if experience.size > 0 %}
+        <section id="experience" aria-labelledby="experience-h">
+          <h2 id="experience-h">{{ c.sections.experience }}</h2>
+          <ul class="dated">
+{%- for e in experience %}
+            <li><span class="date">{{ e.period }}</span><span class="entry">{% include md.html text=e.text %}</span></li>
+{%- endfor %}
+          </ul>
+        </section>
+{%- endif %}
+
+{%- if c.skills != "" %}
+        <section id="skills" aria-labelledby="skills-h">
+          <h2 id="skills-h">{{ c.sections.skills }}</h2>
+          <p>{{ c.skills }}</p>
+        </section>
+{%- endif %}
+      </main>
+
+      <footer class="site-footer">
+        <p>{{ site.author.name }}. {{ c.footer.location }}. <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></p>
+{%- if c.ui.date_format == "fr" %}
+{%- assign month_index = site.time | date: "%-m" | minus: 1 %}
+        <p class="muted">{{ c.ui.last_updated }} <time datetime="{{ site.time | date: '%Y-%m-%d' }}">{{ site.time | date: "%-d" }} {{ c.ui.months[month_index] }} {{ site.time | date: "%Y" }}</time></p>
+{%- else %}
+        <p class="muted">{{ c.ui.last_updated }} <time datetime="{{ site.time | date: '%Y-%m-%d' }}">{{ site.time | date: c.ui.date_format }}</time></p>
+{%- endif %}
+      </footer>
+    </div>
+  </div>
+
+  <script src="{{ '/assets/js/theme.js' | relative_url }}" defer></script>
+</body>
+</html>

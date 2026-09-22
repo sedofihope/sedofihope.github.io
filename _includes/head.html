@@ -1,0 +1,82 @@
+{%- assign c = include.c -%}
+{%- assign page_url = page.url | absolute_url -%}
+{%- if include.photo -%}{%- assign image_url = site.photo | absolute_url -%}{%- endif -%}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ c.page_title }}</title>
+  <meta name="description" content="{{ c.description | strip | escape }}">
+  <meta name="author" content="{{ site.author.name }}">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="{{ page_url }}">
+{%- for l in c.languages %}
+  <link rel="alternate" hreflang="{{ l.code }}" href="{{ l.url | absolute_url }}">
+{%- endfor %}
+  <link rel="alternate" hreflang="x-default" href="{{ '/' | absolute_url }}">
+
+  <!-- Apply the stored theme before first paint to avoid a flash -->
+  <script>(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="{{ c.page_title }}">
+  <meta property="og:description" content="{{ c.description | strip | escape }}">
+  <meta property="og:url" content="{{ page_url }}">
+  <meta property="og:site_name" content="{{ site.author.name }}">
+  <meta property="og:locale" content="{{ c.og_locale }}">
+{%- for l in c.languages %}{% unless l.current %}
+  <meta property="og:locale:alternate" content="{% if l.code == 'fr' %}fr_FR{% else %}en_GB{% endif %}">
+{%- endunless %}{% endfor %}
+  <meta property="profile:first_name" content="{{ site.author.given_name }}">
+  <meta property="profile:last_name" content="{{ site.author.family_name }}">
+{%- if image_url %}
+  <meta property="og:image" content="{{ image_url }}">
+  <meta property="og:image:alt" content="{{ c.ui.photo_alt }}">
+{%- endif %}
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ c.page_title }}">
+  <meta name="twitter:description" content="{{ c.description | strip | escape }}">
+{%- if image_url %}
+  <meta name="twitter:image" content="{{ image_url }}">
+{%- endif %}
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": {{ site.author.name | jsonify }},
+    "alternateName": {{ site.author.name_ascii | jsonify }},
+    "givenName": {{ site.author.given_name | jsonify }},
+    "familyName": {{ site.author.family_name | jsonify }},
+    "url": {{ '/' | absolute_url | jsonify }},
+    "email": {{ site.author.email | prepend: 'mailto:' | jsonify }},
+{%- if image_url %}
+    "image": {{ image_url | jsonify }},
+{%- endif %}
+    "jobTitle": {{ c.jsonld.job_title | jsonify }},
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": {{ c.jsonld.affiliation | jsonify }}
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": {{ c.jsonld.alumni_of | jsonify }}
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Abomey-Calavi",
+      "addressCountry": "BJ"
+    },
+    "knowsAbout": {{ c.jsonld.knows_about | jsonify }},
+    "sameAs": [
+      "https://orcid.org/{{ site.author.orcid }}",
+      "https://github.com/{{ site.author.github }}",
+      "https://www.linkedin.com/in/{{ site.author.linkedin }}"
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">

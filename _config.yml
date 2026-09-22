@@ -1,0 +1,37 @@
+# Site settings
+title: Sèdofi Hope Lanmayikpohoue
+url: https://sedofihope.github.io
+baseurl: ""
+
+# Identity, shared by both language versions
+author:
+  name: Sèdofi Hope Lanmayikpohoue
+  name_ascii: Sedofi Hope Lanmayikpohoue
+  given_name: Sèdofi Hope
+  family_name: Lanmayikpohoue
+  email: sedofihope@gmail.com
+  orcid: 0009-0000-9650-0365
+  github: sedofihope
+  linkedin: sedofihope
+  # To be added once the CARI 2026 proceedings are indexed:
+  # google_scholar: ""
+  # dblp: ""
+
+photo: /assets/photo.jpg
+cv: /assets/cv.pdf
+
+# Build
+markdown: kramdown
+kramdown:
+  input: GFM
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+timezone: Africa/Porto-Novo
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
+  - vendor
+  - .bundle
+  - .jekyll-cache
