@@ -101,7 +101,7 @@ sections:
   skills: Technical Skills
 
 about: |
-  I am a doctoral student in Engineering Sciences, specialising in Computer Science and Artificial Intelligence, at the [National University of Sciences, Technologies, Engineering and Mathematics (UNSTIM)](https://www.unstim.bj), Benin, where I also work as a teaching assistant in computer engineering. I received my engineering degree in 2024 from the National Higher School of Mathematical Engineering and Modelling (ENSGMM), where my final-year thesis dealt with the automated detection of XSS and SQL injection vulnerabilities through code property graphs and graph neural networks, under the supervision of Dr Ing. Géraud Azehoun Pazou, who also supervises my doctoral research.
+  I am a doctoral student in Engineering Sciences, specialising in Computer Science and Artificial Intelligence, at the [National University of Sciences, Technologies, Engineering and Mathematics (UNSTIM)](https://www.unstim.bj), Benin, where I also work as a teaching assistant in computer engineering. I received my engineering degree in 2024 from the National Higher School of Mathematical Engineering and Modelling (ENSGMM), where my final-year thesis dealt with the automated detection of XSS and SQL injection vulnerabilities through code property graphs and graph neural networks, under the supervision of Dr Géraud Azehoun Pazou, who also supervises my doctoral research.
 
   My work sits at the intersection of artificial intelligence and security. It now extends to AI-based environmental monitoring, which is the subject of my doctoral project on inland water bodies in Benin.
 
@@ -145,7 +145,7 @@ news:
     title: Third prize at the ASIN AI Hackathon
     text: Third place at the artificial intelligence hackathon organised by the Agency for Information Systems and Digital Technology (ASIN Benin){count_clause}.
     count: "16" # number of teams
-    count_clause: ", {count} teams taking part"
+    count_clause: ", among {count} teams in the final"
   - date: August 2025
     title: ACP Summer School, first African edition
     text: Attended the 20th summer school of the Association for Constraint Programming, held at IFRI, University of Abomey-Calavi. The programme focused on constraint programming for sustainable development, with hands-on modelling and solving sessions.
@@ -158,8 +158,8 @@ news:
   - date: June 2025
     title: Finalist at HackerLab 2025
     text: Reached the final of the national cybersecurity competition organised by ASIN Benin{count_clause}. Third consecutive year as a finalist.
-    count: "" # TODO number of participants
-    count_clause: ", {count} participants taking part"
+    count: "161"
+    count_clause: ", with 20 teams in the final out of {count} competing"
 
 publications:
   conference_label: Conference
@@ -223,16 +223,16 @@ teaching:
 awards:
   - date: October 2025
     text: Third prize, AI Hackathon 2025, ASIN Benin
-    count: "" # e.g. "24 teams"
+    count: "16 teams in the final"
   - date: June 2025
     text: Finalist, HackerLab 2025, ASIN Benin
-    count: "" # e.g. "300 participants"
+    count: "161 teams competing, 20 in the final"
   - date: September 2024
     text: Finalist, HackerLab 2024, ASIN Benin
-    count: ""
+    count: "451 participants, 50 in the final"
   - date: October 2023
     text: Finalist, HackerLab 2023, ASIN Benin
-    count: ""
+    count: "134 teams competing, 20 in the final"
   - date: April 2023
     text: Second prize, 24HackBJ CTF 2023, EMES SARL
     count: "" # e.g. "40 teams"
@@ -241,12 +241,12 @@ awards:
 # repository, linked only when it exists.
 education:
   - period: Ongoing # TODO replace with "[year] to present"
-    text: "PhD in Engineering Sciences, specialisation: Computer Science and Artificial Intelligence, UNSTIM, Benin. Doctoral project on AI-based monitoring of inland water bodies. Advisor: Dr Ing. Géraud Azehoun Pazou."
+    text: "PhD in Engineering Sciences, specialisation: Computer Science and Artificial Intelligence, UNSTIM, Benin. Doctoral project on AI-based monitoring of inland water bodies. Advisor: Dr Géraud Azehoun Pazou."
   - period: 2021 to 2024
     text: Engineering degree in Computer Science, Logistics and Operations Research, [National Higher School of Mathematical Engineering and Modelling (ENSGMM)](https://ensgmm.unstim.bj), Abomey, Benin.
     lines:
       - "Thesis: *Web application security: applying CPGs (Code Property Graphs) and GNNs (Graph Neural Networks) to the automated detection of XSS and SQLi vulnerabilities*."
-      - Supervised by Dr Ing. M. Géraud Azehoun Pazou, Dr Ing. Emery K. Assogba, Dr Ing. John O. R. Aoga and Dr M. Abel Konnon.
+      - Supervised by Dr M. Géraud Azehoun Pazou, Dr Emery K. Assogba, Dr John O. R. Aoga and Dr M. Abel Konnon.
     file:
       label: Download the thesis (PDF)
       path: /assets/memoire-ingenieur.pdf

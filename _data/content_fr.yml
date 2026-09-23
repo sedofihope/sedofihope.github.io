@@ -138,7 +138,7 @@ news:
     title: Troisième prix au Hackathon IA de l'ASIN
     text: Troisième place au hackathon d'intelligence artificielle organisé par l'Agence des Systèmes d'Information et du Numérique (ASIN Bénin){count_clause}.
     count: "16" # TODO nombre d'équipes
-    count_clause: ", sur {count} équipes"
+    count_clause: ", parmi {count} équipes en finale"
   - date: août 2025
     title: ACP Summer School, première édition africaine
     text: Participation à la 20e école d'été de l'Association for Constraint Programming, à l'IFRI, Université d'Abomey-Calavi. Le programme portait sur la programmation par contraintes au service du développement durable, avec des séances pratiques de modélisation et de résolution.
@@ -151,8 +151,8 @@ news:
   - date: juin 2025
     title: Finaliste du HackerLab 2025
     text: Finale de la compétition nationale de cybersécurité organisée par l'ASIN Bénin{count_clause}. Troisième année consécutive en finale.
-    count: "" # TODO nombre de participants
-    count_clause: ", sur {count} participants"
+    count: "161"
+    count_clause: ", avec 20 équipes en finale sur {count} en lice"
 
 publications:
   conference_label: Conférences
@@ -212,16 +212,16 @@ teaching:
 awards:
   - date: octobre 2025
     text: Troisième prix, Hackathon IA 2025, ASIN Bénin
-    count: "" # ex. "24 équipes"
+    count: "16 équipes en finale"
   - date: juin 2025
     text: Finaliste, HackerLab 2025, ASIN Bénin
-    count: ""
+    count: "161 équipes en lice, 20 en finale"
   - date: septembre 2024
     text: Finaliste, HackerLab 2024, ASIN Bénin
-    count: ""
+    count: "451 participants, 50 en finale"
   - date: octobre 2023
     text: Finaliste, HackerLab 2023, ASIN Bénin
-    count: ""
+    count: "134 équipes en lice, 20 en finale"
   - date: avril 2023
     text: Deuxième prix, CTF 24HackBJ 2023, EMES SARL
     count: ""
