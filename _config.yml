@@ -9,7 +9,9 @@ author:
   name_ascii: Sedofi Hope Lanmayikpohoue
   given_name: Sèdofi Hope
   family_name: Lanmayikpohoue
-  email: sedofihope@gmail.com
+  # Institutional address first; the personal one is shown second, smaller.
+  email: slanmayikpohoue@unstim.bj
+  email_personal: sedofihope@gmail.com
   orcid: 0009-0000-9650-0365
   github: sedofihope
   linkedin: sedofihope
@@ -19,8 +21,12 @@ author:
 
 created: 2026-09-23
 
+# Documents hosted in the repository. Each link stays hidden until its file
+# exists. The CV follows the page language and falls back to the other one.
 photo: /assets/photo.jpg
-cv: /assets/cv.pdf
+cv:
+  en: /assets/cv-en.pdf
+  fr: /assets/cv-fr.pdf
 
 # News: number of entries shown on the home page. The others sit behind
 # "Show more", or behind a link to /news/ once the archive is enabled

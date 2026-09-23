@@ -138,6 +138,21 @@ main:focus { outline: none; }
   padding: 0 1rem;
 }
 
+.monogram {
+  flex: none;
+  display: flex;
+  align-items: center;
+  min-height: var(--nav-h);
+  color: var(--fg);
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+}
+
+.monogram:hover { text-decoration: underline; }
+
 .primary-nav {
   flex: 1 1 auto;
   min-width: 0;
@@ -186,6 +201,9 @@ main:focus { outline: none; }
   position: relative;
   flex: none;
 }
+
+/* When no section fits (small screens), "Menu" moves next to the controls */
+.nav-collapsed .nav-more { margin-left: auto; }
 
 .nav-more-button {
   gap: 0.3rem;
@@ -398,6 +416,18 @@ section, #top { scroll-margin-top: calc(var(--nav-h) + 1rem); }
 .links .icon,
 .location .icon { color: var(--muted); }
 
+/* Institutional address first, personal one below it, smaller */
+.links .email-primary,
+.links .email-secondary { flex-basis: 100%; }
+
+.links .email-secondary {
+  margin-top: -0.35rem;
+  padding-left: calc(1rem + 0.45rem);
+  font-size: 0.8125rem;
+}
+
+.site-footer .email-secondary { font-size: 0.8125rem; }
+
 /* Content */
 .content { max-width: var(--content-w); min-width: 0; }
 
@@ -459,6 +489,28 @@ main ul {
   font-variant-numeric: tabular-nums;
 }
 
+.entry > p { margin: 0 0 0.2rem; }
+.entry > p:last-child { margin-bottom: 0; }
+
+.entry-links { font-size: 0.9375rem; }
+
+.entry-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.talks li { margin-bottom: 0.9rem; }
+.talks li p { margin: 0 0 0.15rem; }
+.talk-venue { color: var(--muted); font-size: 0.9375rem; }
+
+/* Publication and abstract status: small, no colour, no background */
+.status {
+  color: var(--muted);
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
 /* "Show more": native <details>, content present in the served HTML */
 .more summary {
   display: inline-flex;
@@ -483,6 +535,13 @@ main ul {
   grid-template-columns: minmax(0, 1fr);
   gap: 0.35rem;
   margin-bottom: 1.1rem;
+}
+
+.pub-side {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.6rem;
 }
 
 .venue {
@@ -530,11 +589,20 @@ main ul {
   .dated .date { padding-top: 0.1rem; }
 
   .pub {
-    grid-template-columns: 5.5rem minmax(0, 1fr);
+    grid-template-columns: 6.5rem minmax(0, 1fr);
     gap: 1.5rem;
   }
 
-  .venue { margin-top: 0.1rem; }
+  .pub-side {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 0.1rem;
+  }
+
+  .pub-side .status {
+    white-space: normal;
+    line-height: 1.35;
+  }
 }
 
 @media (min-width: 64em) {

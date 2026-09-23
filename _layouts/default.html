@@ -9,6 +9,7 @@
 
   <header class="topbar">
     <div class="topbar-inner">
+      <a class="monogram" href="{{ nav_base }}#top" aria-label="SHL, {{ c.ui.to_top }}">SHL</a>
       <nav class="primary-nav" id="primary-nav" aria-label="{{ c.ui.nav_label }}">
         <ul class="nav-list">
 {%- for id in nav_ids %}
@@ -58,7 +59,8 @@
         <p class="location">{% include icon.html name="location" %}<span>{{ c.sidebar.location }}</span></p>
 
         <ul class="links" aria-label="{{ c.ui.links_label }}">
-          <li><a href="mailto:{{ site.author.email }}">{% include icon.html name="email" %}<span>{{ c.ui.email }}</span></a></li>
+          <li class="email-primary"><a href="mailto:{{ site.author.email }}">{% include icon.html name="email" %}<span>{{ site.author.email }}</span></a></li>
+          <li class="email-secondary"><a href="mailto:{{ site.author.email_personal }}">{{ site.author.email_personal }}</a></li>
           <li><a href="https://orcid.org/{{ site.author.orcid }}" target="_blank" rel="noopener me">{% include icon.html name="orcid" %}<span>ORCID</span></a></li>
           <li><a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener me">{% include icon.html name="github" %}<span>GitHub</span></a></li>
           <li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" target="_blank" rel="noopener me">{% include icon.html name="linkedin" %}<span>LinkedIn</span></a></li>
@@ -69,7 +71,11 @@
           <li><a href="https://dblp.org/pid/{{ site.author.dblp }}.html" target="_blank" rel="noopener me">{% include icon.html name="dblp" %}<span>DBLP</span></a></li>
 {%- endif %}
 {%- if cv_file %}
-          <li><a href="{{ site.cv | relative_url }}" type="application/pdf">{% include icon.html name="cv" %}<span>{{ c.ui.cv }}</span></a></li>
+{%- if cv_file.path == cv_wanted %}
+          <li><a href="{{ cv_file.path | relative_url }}" type="application/pdf">{% include icon.html name="cv" %}<span>{{ c.ui.cv }}</span></a></li>
+{%- else %}
+          <li><a href="{{ cv_file.path | relative_url }}" type="application/pdf" hreflang="{% if page.lang_key == 'fr' %}en{% else %}fr{% endif %}">{% include icon.html name="cv" %}<span>{{ c.ui.cv_other_language }}</span></a></li>
+{%- endif %}
 {%- endif %}
         </ul>
       </div>
@@ -81,7 +87,8 @@
       </main>
 
       <footer class="site-footer">
-        <p>{{ site.author.name }}. {{ c.footer.location }}. <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></p>
+        <p>{{ site.author.name }} ({{ site.author.name_ascii }}). {{ c.footer.location }}.</p>
+        <p><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a><span class="email-secondary"> · <a href="mailto:{{ site.author.email_personal }}">{{ site.author.email_personal }}</a></span></p>
 {%- if c.ui.date_format == "fr" %}
 {%- assign month_index = site.time | date: "%-m" | minus: 1 %}
         <p class="muted">{{ c.ui.last_updated }} <time datetime="{{ site.time | date: '%Y-%m-%d' }}">{{ site.time | date: "%-d" }} {{ c.ui.months[month_index] }} {{ site.time | date: "%Y" }}</time></p>

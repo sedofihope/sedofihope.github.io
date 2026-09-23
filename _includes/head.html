@@ -48,6 +48,7 @@
   <meta name="twitter:description" content="{{ c.description | strip | escape }}">
 {%- if image_url %}
   <meta name="twitter:image" content="{{ image_url }}">
+  <meta name="twitter:image:alt" content="{{ c.ui.photo_alt }}">
 {%- endif %}
 
   <!-- Structured data: a profile page whose main entity is the person -->

@@ -76,6 +76,7 @@
     items.forEach(function (li, i) { li.hidden = i >= visible; });
     overflowItems.forEach(function (li, i) { li.hidden = i < visible; });
     more.hidden = visible === widths.length;
+    nav.classList.toggle("nav-collapsed", visible === 0);
     if (more.hidden) closeMenu();
     markActive(activeId);
   }

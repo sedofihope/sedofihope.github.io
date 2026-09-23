@@ -4,22 +4,21 @@
 
 lang: fr
 og_locale: fr_FR
-page_title: Sèdofi Hope Lanmayikpohoue - Page personnelle
-news_page_title: Actualités - Sèdofi Hope Lanmayikpohoue
+page_title: Sèdofi Hope Lanmayikpohoue | Chercheur en IA et cybersécurité
+news_page_title: Actualités | Sèdofi Hope Lanmayikpohoue
 description: >-
-  Sèdofi Hope Lanmayikpohoue, doctorant en Sciences de l'Ingénieur (Informatique
-  et Intelligence Artificielle) à l'UNSTIM, Bénin, et assistant d'enseignement en
-  génie informatique. Recherche en IA pour la cybersécurité, notamment la
-  détection de vulnérabilités dans le code source, et en IA pour la surveillance
-  environnementale.
+  Page personnelle de Sèdofi Hope Lanmayikpohoue (Sedofi Hope Lanmayikpohoue),
+  doctorant en Sciences de l'Ingénieur à l'UNSTIM, Bénin. Recherche en IA pour la
+  cybersécurité et la surveillance environnementale.
 
 ui:
   skip: Aller au contenu principal
   nav_label: Sections
   links_label: Liens
-  photo_alt: Portrait de Sèdofi Hope Lanmayikpohoue
-  email: Courriel
+  photo_alt: Sedofi Hope Lanmayikpohoue
+  to_top: haut de page
   cv: CV (PDF)
+  cv_other_language: CV (PDF, en anglais)
   theme_to_dark: Passer au thème sombre
   theme_to_light: Passer au thème clair
   language_label: Langue
@@ -27,6 +26,15 @@ ui:
   show_more: Voir plus
   all_news: Toutes les actualités
   pdf: PDF
+  doi: DOI
+  link: Lien
+  links: Liens
+  # Libellés de statut. `published` n'affiche rien : c'est l'état normal.
+  pub_status:
+    accepted: Accepté, à paraître
+    in_press: Sous presse
+  talk_status:
+    accepted: Résumé accepté
   colon: "\u00a0:"
   last_updated: "Dernière mise à jour :"
   date_format: fr
@@ -100,50 +108,93 @@ research:
   - label: Investigation numérique
     text: axe émergent, notamment l'apport des méthodes d'apprentissage à l'analyse de preuves et à la conduite d'investigations
 
-# Ordre antichronologique, la plus récente en haut.
+# Ordre antichronologique, la plus récente en haut. Mêmes conventions que
+# content_en.yml (titre, texte, liens, {count_clause}).
 news:
-  - date: octobre 2026 # TODO confirmer les dates exactes de CARI 2026
-    text: Présentation de notre article sur les transformers sur graphes hétérogènes pour la détection de vulnérabilités, CARI 2026, Cotonou, Bénin.
-  - date: "2026"
-    text: Notre article **VulHGT** est accepté à **CARI 2026** (Springer LNCS).
-  - date: "2026"
-    draft: true # TODO confirmer le statut (acceptés ou soumis), puis retirer draft
-    text: "[Résumés acceptés / soumis] au colloque scientifique de l'UNSTIM : détection de vulnérabilités par graphes, et vision par ordinateur pour la robotique agricole."
+  - date: octobre 2026
+    title: CARI 2026
+    text: Présentation de notre article sur la détection de vulnérabilités par graphes à la 18e Conférence Africaine sur la Recherche en Informatique et en Mathématiques Appliquées, à l'Université d'Abomey-Calavi, du 21 au 24 octobre. CARI est le principal forum panafricain de recherche en informatique et mathématiques appliquées.
+    links:
+      - label: cari-conf.bj
+        url: https://cari-conf.bj/
+  - date: septembre 2026
+    title: Deux résumés acceptés au 3e Colloque Scientifique International de l'UNSTIM
+    text: Les deux résumés sont retenus pour le colloque qui se tient sur le campus universitaire d'Abomey du 13 au 16 octobre 2026, sur le thème des STIM et de l'innovation technologique pour le développement durable. Le premier, sur la détection des vulnérabilités logicielles par l'IA, est accepté en poster ; le second, sur la vision par ordinateur pour l'agriculture de précision, en communication orale.
+  - date: juin 2026
+    title: Article accepté à CARI 2026
+    text: Nos travaux sur la détection automatique des vulnérabilités dans le code source, fondés sur les graphes de propriétés de code et un transformer sur graphes hétérogènes, sont acceptés à CARI 2026. L'article paraîtra dans la série Lecture Notes in Computer Science de Springer.
   - date: novembre 2025
-    text: Animation d'un atelier pratique sur la génération augmentée par recherche au Benin Workshop on Artificial Intelligence (BWAI 2025), Université d'Abomey-Calavi.
+    title: Atelier sur la génération augmentée par recherche
+    text: Animation d'un atelier pratique intitulé « Créez votre chatbot documentaire avec le RAG » au Benin Workshop on Artificial Intelligence (BWAI 2025), à l'Université d'Abomey-Calavi. La séance a couvert l'indexation documentaire, la recherche de passages et la génération de réponses, et s'est conclue par un prototype fonctionnel construit par chaque participant.
+    links:
+      - label: bwai-ifri-uac.bj
+        url: https://bwai-ifri-uac.bj
+      - label: Diapositives (PDF)
+        file: /assets/slides-bwai-2025.pdf
   - date: octobre 2025
-    text: Troisième prix du Hackathon IA 2025 de l'ASIN Bénin.
+    title: Troisième prix au Hackathon IA de l'ASIN
+    text: Troisième place au hackathon d'intelligence artificielle organisé par l'Agence des Systèmes d'Information et du Numérique (ASIN Bénin){count_clause}.
+    count: "" # TODO nombre d'équipes
+    count_clause: ", sur {count} équipes"
   - date: août 2025
-    text: Participation à l'ACP Summer School 2025 sur la programmation par contraintes, Abomey-Calavi.
+    title: ACP Summer School, première édition africaine
+    text: Participation à la 20e école d'été de l'Association for Constraint Programming, à l'IFRI, Université d'Abomey-Calavi. Le programme portait sur la programmation par contraintes au service du développement durable, avec des séances pratiques de modélisation et de résolution.
+    links:
+      - label: school.a4cp.org
+        url: https://school.a4cp.org/summer2025/
   - date: juin 2025
-    text: Finaliste du HackerLab 2025, compétition nationale de cybersécurité de l'ASIN Bénin.
-  - date: février 2025
-    text: Début comme assistant d'enseignement en génie informatique à l'UNSTIM.
+    title: CITA 2025 et formation en télédétection
+    text: Participation à la conférence de l'Académie Nationale des Sciences, Arts et Lettres du Bénin consacrée aux TIC pour une agriculture durable, et suivi de la formation « Drones et télédétection pour une agriculture durable ». C'est le domaine sur lequel s'appuient aujourd'hui mes travaux de thèse.
+  - date: juin 2025
+    title: Finaliste du HackerLab 2025
+    text: Finale de la compétition nationale de cybersécurité organisée par l'ASIN Bénin{count_clause}. Troisième année consécutive en finale.
+    count: "" # TODO nombre de participants
+    count_clause: ", sur {count} participants"
 
 publications:
   conference_label: Conférences
   journal_label: Revues
   # Les titres et références bibliographiques ne se traduisent pas :
-  # recopier à l'identique les entrées de content_en.yml.
+  # entrées identiques à celles de content_en.yml.
   conference:
     - venue: CARI'26
-      draft: true # TODO titre complet, auteurs et numéro d'édition, puis retirer draft
-      title: "[Full title of the paper, as it will appear at Springer]"
+      status: accepted
+      title: "VulHGT: Leveraging Code Property Graphs and Heterogeneous Graph Transformers for PHP Vulnerability Detection"
       authors:
-        - name: "[Author]"
         - name: Sèdofi Hope Lanmayikpohoue
           me: true
-      reference: "In *Proceedings of the [number] African Conference on Research in Computer Science and Applied Mathematics (CARI)*, October 2026. Lecture Notes in Computer Science, Springer."
+        - name: Emery Kouassi Assogba
+        - name: Mahugnon Géraud Azehoun Pazou
+        - name: John Oscar Raoul Aoga
+        - name: Miton Abel Konnon
+      reference: "In *Proceedings of the 18th African Conference on Research in Computer Science and Applied Mathematics (CARI 2026)*, Abomey-Calavi, Benin, 21 to 24 October 2026. Lecture Notes in Computer Science, Springer."
       pdf: ""
+      doi: ""
   journal: []
 
+# Mêmes conventions que les publications. Les titres restent dans leur langue
+# d'origine.
 talks:
-  - title: "[Titre du résumé sur la détection de vulnérabilités]"
-    draft: true # TODO titre et date
-    venue: Colloque scientifique, UNSTIM, Bénin, [date].
-  - title: "[Titre du résumé sur la vision par ordinateur pour la robotique agricole]"
-    draft: true # TODO titre et date
-    venue: Colloque scientifique, UNSTIM, Bénin, [date].
+  - title: "L'intelligence artificielle au service de la détection des vulnérabilités logicielles : état de l'art et étude de cas VulHGT"
+    title_lang: fr
+    kind: poster
+    status: accepted
+    authors:
+      - name: Sèdofi Hope Lanmayikpohoue
+        me: true
+      - name: Mahugnon Géraud Azehoun Pazou
+    venue: "3e Colloque Scientifique International de l'UNSTIM, thème : STIM et innovation technologique pour le développement durable, bilan des 10 ans de l'UNSTIM et perspectives. Campus universitaire d'Abomey, Bénin, 13 au 16 octobre 2026."
+  - title: "Vision par ordinateur pour l'agriculture de précision au Bénin : entraînement d'un modèle de détection maïs/mauvaises herbes pour un robot de désherbage autonome"
+    title_lang: fr
+    kind: communication orale
+    status: accepted
+    authors:
+      - name: Mahugnon Géraud Azehoun Pazou
+      - name: Parfait Botchi
+      - name: Prosper Affoukou
+      - name: Sèdofi Hope Lanmayikpohoue
+        me: true
+    venue: 3e Colloque Scientifique International de l'UNSTIM, campus universitaire d'Abomey, Bénin, 13 au 16 octobre 2026.
   - title: Créez votre chatbot documentaire avec le RAG
     kind: atelier
     venue: Benin Workshop on Artificial Intelligence (BWAI 2025), Université d'Abomey-Calavi, 17 au 21 novembre 2025.
@@ -176,7 +227,13 @@ education:
   - period: En cours # TODO remplacer par "[année] à aujourd'hui"
     text: "Doctorat en Sciences de l'Ingénieur, spécialité Informatique et Intelligence Artificielle, UNSTIM, Bénin. Projet de thèse sur la surveillance des plans d'eau continentaux par l'IA. Directeur : Dr Ing. Géraud Azehoun Pazou."
   - period: 2021 à 2024
-    text: "Diplôme d'ingénieur de conception en Informatique, Logistique et Recherche Opérationnelle, [ENSGMM](https://ensgmm.unstim.bj), Abomey, Bénin. Mémoire : *Sécurité des applications web : application des graphes de propriétés de code et des réseaux de neurones sur graphes pour la détection automatique des vulnérabilités XSS et SQLi*."
+    text: Diplôme d'ingénieur de conception en Informatique, Logistique et Recherche Opérationnelle, [ENSGMM](https://ensgmm.unstim.bj), Abomey, Bénin.
+    lines:
+      - "Mémoire : *Sécurité des applications web : application des graphes de propriétés de code et des réseaux de neurones sur graphes pour la détection automatique des vulnérabilités XSS et SQLi*."
+      - Encadré par le Dr Ing. Géraud Azehoun Pazou. Projet proposé et co-encadré par le Dr Ing. K. Emery Assogba et le Dr Ing. John O. R. Aoga.
+    file:
+      label: Télécharger le mémoire (PDF)
+      path: /assets/memoire-ingenieur.pdf
   - period: 2019 à 2021
     text: Classes préparatoires aux écoles d'ingénieur, INSPEI, Abomey, Bénin.
 

@@ -1,0 +1,13 @@
+{%- comment -%}
+  Author list, the site owner (`me: true`) in bold.
+  style="and": bibliographic style, "A, B, and C" (publications).
+  Default: plain commas (communications).
+{%- endcomment -%}
+{%- for a in include.authors -%}
+  {%- unless forloop.first -%}
+    {%- if include.style == "and" and forloop.last -%}
+      {%- if forloop.length > 2 %}, and {% else %} and {% endif -%}
+    {%- else %}, {% endif -%}
+  {%- endunless -%}
+  {%- if a.me -%}<strong>{{ a.name }}</strong>{%- else -%}{{ a.name }}{%- endif -%}
+{%- endfor -%}

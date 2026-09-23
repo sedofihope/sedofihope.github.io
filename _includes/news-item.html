@@ -1,1 +1,30 @@
-<li><span class="date">{{ include.item.date }}</span><span class="entry">{% include md.html text=include.item.text %}</span></li>
+{%- comment -%}
+  One news entry: date, bold title, text, then its links. File links are
+  shown only when the file exists. {count_clause} in the text is filled in
+  from `count` and `count_clause`, or removed when `count` is empty.
+{%- endcomment -%}
+{%- assign n = include.item -%}
+{%- assign n_links = "" -%}
+{%- assign n_count = 0 -%}
+{%- for l in n.links -%}
+  {%- assign l_html = "" -%}
+  {%- if l.url -%}
+    {%- capture l_html -%}<a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a>{%- endcapture -%}
+  {%- elsif l.file -%}
+    {%- include file.html path=l.file -%}
+    {%- if file_found -%}{%- capture l_html -%}<a href="{{ l.file | relative_url }}" type="application/pdf">{{ l.label }}</a>{%- endcapture -%}{%- endif -%}
+  {%- endif -%}
+  {%- if l_html != "" -%}
+    {%- if n_count > 0 -%}{%- assign n_links = n_links | append: " · " -%}{%- endif -%}
+    {%- assign n_links = n_links | append: l_html -%}
+    {%- assign n_count = n_count | plus: 1 -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign n_clause = "" -%}
+{%- if n.count and n.count != "" -%}{%- assign n_clause = n.count_clause | replace: "{count}", n.count -%}{%- endif -%}
+{%- assign n_text = n.text | replace: "{count_clause}", n_clause -%}
+<li><span class="date">{{ n.date }}</span><div class="entry">
+{%- if n.title %}<p class="entry-title"><strong>{{ n.title }}</strong></p>{% endif -%}
+<p>{% include md.html text=n_text %}</p>
+{%- if n_count > 0 %}<p class="entry-links">{% if n_count > 1 %}{{ c.ui.links }}{% else %}{{ c.ui.link }}{% endif %}{{ c.ui.colon }} {{ n_links }}</p>{% endif -%}
+</div></li>

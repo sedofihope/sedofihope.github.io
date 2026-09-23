@@ -1,0 +1,9 @@
+{%- comment -%}
+  Sets `file_found` to the static file at include.path, or nil when the path
+  is empty or the file is not in the repository. Used to hide links to
+  documents that have not been added yet.
+{%- endcomment -%}
+{%- assign file_found = nil -%}
+{%- if include.path and include.path != "" -%}
+  {%- assign file_found = site.static_files | where: "path", include.path | first -%}
+{%- endif -%}

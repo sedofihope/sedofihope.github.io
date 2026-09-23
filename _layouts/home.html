@@ -53,14 +53,22 @@ layout: default
           <h3>{{ label }}</h3>
           <ul class="pubs">
 {%- for p in items %}
-            <li class="pub" lang="en">
-              <span class="venue">{{ p.venue }}</span>
-              <div class="pub-body">
+{%- assign p_status = c.ui.pub_status[p.status] %}
+{%- include file.html path=p.pdf %}
+{%- assign p_has_doi = false %}{% if p.doi and p.doi != "" %}{% assign p_has_doi = true %}{% endif %}
+            <li class="pub">
+              <div class="pub-side">
+                <span class="venue">{{ p.venue }}</span>
+{%- if p_status %}
+                <span class="status">{{ p_status }}</span>
+{%- endif %}
+              </div>
+              <div class="pub-body" lang="en">
                 <p class="pub-title">{{ p.title }}</p>
-                <p class="pub-authors">{% for a in p.authors %}{% if a.me %}<strong>{{ a.name }}</strong>{% else %}{{ a.name }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}.</p>
+                <p class="pub-authors">{% include authors.html authors=p.authors style="and" %}.</p>
                 <p class="pub-ref">{% include md.html text=p.reference %}</p>
-{%- if p.pdf and p.pdf != "" %}
-                <p class="pub-links"><a href="{{ p.pdf | relative_url }}" type="application/pdf">{{ c.ui.pdf }}</a></p>
+{%- if file_found or p_has_doi %}
+                <p class="pub-links">{% if file_found %}<a href="{{ p.pdf | relative_url }}" type="application/pdf">{{ c.ui.pdf }}</a>{% endif %}{% if file_found and p_has_doi %} · {% endif %}{% if p_has_doi %}<a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">{{ c.ui.doi }}</a>{% endif %}</p>
 {%- endif %}
               </div>
             </li>
@@ -74,9 +82,16 @@ layout: default
 {%- if talks.size > 0 %}
         <section id="talks" aria-labelledby="talks-h">
           <h2 id="talks-h">{{ c.sections.talks }}</h2>
-          <ul class="plain-list">
+          <ul class="plain-list talks">
 {%- for t in talks %}
-            <li><strong>{{ t.title }}</strong>{% if t.kind %} ({{ t.kind }}){% endif %}. {% include md.html text=t.venue %}</li>
+{%- assign t_status = c.ui.talk_status[t.status] %}
+            <li>
+              <p><strong{% if t.title_lang and t.title_lang != page.lang_key %} lang="{{ t.title_lang }}"{% endif %}>{{ t.title }}</strong>{% if t.kind %} ({{ t.kind }}){% endif %}.{% if t_status %} <span class="status">{{ t_status }}</span>{% endif %}</p>
+{%- if t.authors %}
+              <p>{% include authors.html authors=t.authors %}.</p>
+{%- endif %}
+              <p class="talk-venue">{% include md.html text=t.venue %}</p>
+            </li>
 {%- endfor %}
           </ul>
         </section>
@@ -107,7 +122,15 @@ layout: default
           <h2 id="education-h">{{ c.sections.education }}</h2>
           <ul class="dated">
 {%- for e in education %}
-            <li><span class="date">{{ e.period }}</span><span class="entry">{% include md.html text=e.text %}</span></li>
+            <li><span class="date">{{ e.period }}</span><div class="entry">
+              <p>{% include md.html text=e.text %}</p>
+{%- for line in e.lines %}
+              <p>{% include md.html text=line %}</p>
+{%- endfor %}
+{%- if e.file %}{% include file.html path=e.file.path %}{% if file_found %}
+              <p class="entry-links"><a href="{{ e.file.path | relative_url }}" type="application/pdf">{% include icon.html name="cv" %}<span>{{ e.file.label }}</span></a></p>
+{%- endif %}{% endif %}
+            </div></li>
 {%- endfor %}
           </ul>
         </section>

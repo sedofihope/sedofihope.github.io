@@ -9,21 +9,21 @@
 
 lang: en-GB
 og_locale: en_GB
-page_title: Sèdofi Hope Lanmayikpohoue - Homepage
-news_page_title: News - Sèdofi Hope Lanmayikpohoue
+page_title: Sèdofi Hope Lanmayikpohoue | AI and Cybersecurity Researcher
+news_page_title: News | Sèdofi Hope Lanmayikpohoue
 description: >-
-  Sèdofi Hope Lanmayikpohoue, doctoral student in Engineering Sciences (Computer
-  Science and Artificial Intelligence) at UNSTIM, Benin, and teaching assistant in
-  computer engineering. Research on AI for cybersecurity, including the detection
-  of vulnerabilities in source code, and AI for environmental monitoring.
+  Personal page of Sèdofi Hope Lanmayikpohoue (Sedofi Hope Lanmayikpohoue),
+  doctoral student in Engineering Sciences at UNSTIM, Benin. Research on AI for
+  cybersecurity and environmental monitoring.
 
 ui:
   skip: Skip to main content
   nav_label: Sections
   links_label: Links
-  photo_alt: Portrait of Sèdofi Hope Lanmayikpohoue
-  email: Email
+  photo_alt: Sedofi Hope Lanmayikpohoue
+  to_top: back to top
   cv: CV (PDF)
+  cv_other_language: CV (PDF, in French)
   theme_to_dark: Switch to dark theme
   theme_to_light: Switch to light theme
   language_label: Language
@@ -31,6 +31,15 @@ ui:
   show_more: Show more
   all_news: All news
   pdf: PDF
+  doi: DOI
+  link: Link
+  links: Links
+  # Status labels. `published` shows nothing: it is the normal state.
+  pub_status:
+    accepted: Accepted, to appear
+    in_press: In press
+  talk_status:
+    accepted: Accepted abstract
   colon: ":"
   last_updated: "Last updated:"
   date_format: "%-d %B %Y"
@@ -103,50 +112,100 @@ research:
   - label: Digital Forensics
     text: an emerging interest, in particular the use of learning-based methods to support investigation and evidence analysis
 
-# Reverse chronological order, most recent first.
+# Reverse chronological order, most recent first. Each entry: a bold title,
+# two or three sentences, and optional links. A link with `file` instead of
+# `url` points to a document in the repository and stays hidden until the
+# file exists. In `text`, {count_clause} is replaced by `count_clause` (with
+# {count} filled in) once `count` is set, and removed otherwise.
 news:
-  - date: October 2026 # TODO confirm exact dates of CARI 2026
-    text: Presenting our paper on heterogeneous graph transformers for vulnerability detection at CARI 2026, Cotonou, Benin.
-  - date: "2026"
-    text: Our paper **VulHGT** has been accepted at **CARI 2026** (Springer LNCS).
-  - date: "2026"
-    draft: true # TODO confirm status (accepted or submitted), then remove draft
-    text: "[Abstracts accepted / submitted] at the UNSTIM scientific colloquium: one on graph-based vulnerability detection, one on computer vision for agricultural robotics."
+  - date: October 2026
+    title: CARI 2026
+    text: Presentation of our paper on graph-based vulnerability detection at the 18th African Conference on Research in Computer Science and Applied Mathematics, held at the University of Abomey-Calavi from 21 to 24 October. CARI is the main pan-African forum for research in computer science and applied mathematics.
+    links:
+      - label: cari-conf.bj
+        url: https://cari-conf.bj/
+  - date: September 2026
+    title: Two abstracts accepted at the 3rd UNSTIM International Scientific Colloquium
+    text: Both abstracts have been accepted for the colloquium held on the Abomey campus from 13 to 16 October 2026, on the theme of science, technology, engineering, mathematics and innovation for sustainable development. The first, on AI-based detection of software vulnerabilities, was accepted as a poster; the second, on computer vision for precision agriculture, as an oral presentation.
+  - date: June 2026
+    title: Paper accepted at CARI 2026
+    text: Our work on the automated detection of vulnerabilities in source code, based on code property graphs and a heterogeneous graph transformer, has been accepted at CARI 2026. The paper will appear in the Lecture Notes in Computer Science series published by Springer.
   - date: November 2025
-    text: Ran a hands-on workshop on retrieval-augmented generation at the Benin Workshop on Artificial Intelligence (BWAI 2025), University of Abomey-Calavi.
+    title: Workshop on retrieval-augmented generation
+    text: Ran a hands-on workshop entitled "Build your own document chatbot with RAG" at the Benin Workshop on Artificial Intelligence (BWAI 2025), University of Abomey-Calavi. The session walked participants through document indexing, retrieval and answer generation, and ended with a working prototype built by each participant.
+    links:
+      - label: bwai-ifri-uac.bj
+        url: https://bwai-ifri-uac.bj
+      - label: Slides (PDF)
+        file: /assets/slides-bwai-2025.pdf
   - date: October 2025
-    text: Third prize at the ASIN AI Hackathon 2025.
+    title: Third prize at the ASIN AI Hackathon
+    text: Third place at the artificial intelligence hackathon organised by the Agency for Information Systems and Digital Technology (ASIN Benin){count_clause}.
+    count: "" # TODO number of teams
+    count_clause: ", {count} teams taking part"
   - date: August 2025
-    text: Attended the ACP Summer School 2025 on constraint programming, Abomey-Calavi.
+    title: ACP Summer School, first African edition
+    text: Attended the 20th summer school of the Association for Constraint Programming, held at IFRI, University of Abomey-Calavi. The programme focused on constraint programming for sustainable development, with hands-on modelling and solving sessions.
+    links:
+      - label: school.a4cp.org
+        url: https://school.a4cp.org/summer2025/
   - date: June 2025
-    text: Finalist at HackerLab 2025, the national cybersecurity competition organised by ASIN Benin.
-  - date: February 2025
-    text: Started as a teaching assistant in computer engineering at UNSTIM.
+    title: CITA 2025 and remote sensing training
+    text: Took part in the conference of Benin's National Academy of Sciences, Arts and Letters devoted to information technology for sustainable agriculture, and followed the training session on drones and remote sensing. This is the field my doctoral work now builds on.
+  - date: June 2025
+    title: Finalist at HackerLab 2025
+    text: Reached the final of the national cybersecurity competition organised by ASIN Benin{count_clause}. Third consecutive year as a finalist.
+    count: "" # TODO number of participants
+    count_clause: ", {count} participants taking part"
 
 publications:
   conference_label: Conference
   journal_label: Journal
-  # Titles and bibliographic references are never translated.
+  # Titles and bibliographic references are never translated: the entries
+  # are identical in content_fr.yml.
+  # status: accepted | in_press | published
   # In `authors`, mark the site owner with `me: true`.
+  # `pdf` (a file in /assets/publications/) and `doi` are shown only when set
+  # and, for the PDF, only when the file exists.
   conference:
     - venue: CARI'26
-      draft: true # TODO full title, author list and edition number, then remove draft
-      title: "[Full title of the paper, as it will appear at Springer]"
+      status: accepted
+      title: "VulHGT: Leveraging Code Property Graphs and Heterogeneous Graph Transformers for PHP Vulnerability Detection"
       authors:
-        - name: "[Author]"
         - name: Sèdofi Hope Lanmayikpohoue
           me: true
-      reference: "In *Proceedings of the [number] African Conference on Research in Computer Science and Applied Mathematics (CARI)*, October 2026. Lecture Notes in Computer Science, Springer."
+        - name: Emery Kouassi Assogba
+        - name: Mahugnon Géraud Azehoun Pazou
+        - name: John Oscar Raoul Aoga
+        - name: Miton Abel Konnon
+      reference: "In *Proceedings of the 18th African Conference on Research in Computer Science and Applied Mathematics (CARI 2026)*, Abomey-Calavi, Benin, 21 to 24 October 2026. Lecture Notes in Computer Science, Springer."
       pdf: "" # e.g. /assets/publications/vulhgt-cari2026.pdf
+      doi: "" # e.g. 10.1007/...
   journal: []
 
+# Same conventions as publications. Titles stay in their original language;
+# `title_lang` marks a title written in another language than the page.
 talks:
-  - title: "[Title of the abstract on vulnerability detection]"
-    draft: true # TODO title and date
-    venue: Scientific colloquium, UNSTIM, Benin, [date].
-  - title: "[Title of the abstract on computer vision for agricultural robotics]"
-    draft: true # TODO title and date
-    venue: Scientific colloquium, UNSTIM, Benin, [date].
+  - title: "L'intelligence artificielle au service de la détection des vulnérabilités logicielles : état de l'art et étude de cas VulHGT"
+    title_lang: fr
+    kind: poster
+    status: accepted
+    authors:
+      - name: Sèdofi Hope Lanmayikpohoue
+        me: true
+      - name: Mahugnon Géraud Azehoun Pazou
+    venue: 3rd International Scientific Colloquium of UNSTIM, "STEM and technological innovation for sustainable development", Abomey campus, Benin, 13 to 16 October 2026.
+  - title: "Vision par ordinateur pour l'agriculture de précision au Bénin : entraînement d'un modèle de détection maïs/mauvaises herbes pour un robot de désherbage autonome"
+    title_lang: fr
+    kind: oral presentation
+    status: accepted
+    authors:
+      - name: Mahugnon Géraud Azehoun Pazou
+      - name: Parfait Botchi
+      - name: Prosper Affoukou
+      - name: Sèdofi Hope Lanmayikpohoue
+        me: true
+    venue: 3rd International Scientific Colloquium of UNSTIM, Abomey campus, Benin, 13 to 16 October 2026.
   - title: Build your own document chatbot with RAG
     kind: workshop
     venue: Benin Workshop on Artificial Intelligence (BWAI 2025), University of Abomey-Calavi, 17 to 21 November 2025.
@@ -175,11 +234,19 @@ awards:
     text: Second prize, 24HackBJ CTF 2023, EMES SARL
     count: "" # e.g. "40 teams"
 
+# `lines` are extra lines under the entry; `file` is a document in the
+# repository, linked only when it exists.
 education:
   - period: Ongoing # TODO replace with "[year] to present"
     text: "PhD in Engineering Sciences, specialisation: Computer Science and Artificial Intelligence, UNSTIM, Benin. Doctoral project on AI-based monitoring of inland water bodies. Advisor: Dr Ing. Géraud Azehoun Pazou."
   - period: 2021 to 2024
-    text: "Engineering degree in Computer Science, Logistics and Operations Research, [National Higher School of Mathematical Engineering and Modelling (ENSGMM)](https://ensgmm.unstim.bj), Abomey, Benin. Final-year thesis: *Web application security: code property graphs and graph neural networks for the automated detection of XSS and SQL injection vulnerabilities*."
+    text: Engineering degree in Computer Science, Logistics and Operations Research, [National Higher School of Mathematical Engineering and Modelling (ENSGMM)](https://ensgmm.unstim.bj), Abomey, Benin.
+    lines:
+      - "Thesis: *Web application security: code property graphs and graph neural networks for the automated detection of XSS and SQL injection vulnerabilities*."
+      - Supervised by Dr Ing. Géraud Azehoun Pazou. Project proposed and co-supervised by Dr Ing. K. Emery Assogba and Dr Ing. John O. R. Aoga.
+    file:
+      label: Download the thesis (PDF)
+      path: /assets/memoire-ingenieur.pdf
   - period: 2019 to 2021
     text: Preparatory classes for engineering schools (CPGE), INSPEI, Abomey, Benin.
 

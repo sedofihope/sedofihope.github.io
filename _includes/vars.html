@@ -6,7 +6,14 @@
 {%- assign data_key = "content_" | append: page.lang_key -%}
 {%- assign c = site.data[data_key] -%}
 {%- assign photo_file = site.static_files | where: "path", site.photo | first -%}
-{%- assign cv_file = site.static_files | where: "path", site.cv | first -%}
+{%- comment -%} CV in the page language, or the other one if only that one exists. {%- endcomment -%}
+{%- assign cv_en = site.static_files | where: "path", site.cv.en | first -%}
+{%- assign cv_fr = site.static_files | where: "path", site.cv.fr | first -%}
+{%- if page.lang_key == "fr" -%}
+  {%- assign cv_file = cv_fr | default: cv_en -%}{%- assign cv_wanted = site.cv.fr -%}
+{%- else -%}
+  {%- assign cv_file = cv_en | default: cv_fr -%}{%- assign cv_wanted = site.cv.en -%}
+{%- endif -%}
 {%- for l in c.languages -%}{%- if l.current -%}{%- assign home_url = l.url -%}{%- endif -%}{%- endfor -%}
 
 {%- assign news = c.news | where_exp: "i", "i.draft != true" -%}
