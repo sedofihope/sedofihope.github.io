@@ -34,6 +34,11 @@ cv:
 news_limit: 8
 news_archive: false
 
+# Top bar: at most `nav_max` sections, chosen in this order of priority
+# (they keep the page order in the bar); the others go to "Menu".
+nav_max: 6
+nav_priority: [about, research, publications, talks, teaching, news, awards, education, experience, skills]
+
 # Google Search Console: either drop the HTML verification file at the root
 # of the repository, or put the meta tag token here.
 # google_site_verification: ""

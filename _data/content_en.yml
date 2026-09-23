@@ -73,17 +73,19 @@ jsonld:
     - Remote sensing
     - Digital forensics
 
+# Short labels for the top bar. Section headings and the "Menu" drop-down
+# use the full titles from `sections`.
 nav:
-  about: About Me
-  research: Research Interests
+  about: About
+  research: Research
   news: News
   publications: Publications
-  talks: Talks and Communications
+  talks: Talks
   teaching: Teaching
-  awards: Awards and Competitions
+  awards: Awards
   education: Education
   experience: Experience
-  skills: Technical Skills
+  skills: Skills
 
 sections:
   about: About Me
@@ -243,7 +245,7 @@ education:
     text: Engineering degree in Computer Science, Logistics and Operations Research, [National Higher School of Mathematical Engineering and Modelling (ENSGMM)](https://ensgmm.unstim.bj), Abomey, Benin.
     lines:
       - "Thesis: *Web application security: code property graphs and graph neural networks for the automated detection of XSS and SQL injection vulnerabilities*."
-      - Supervised by Dr Ing. Géraud Azehoun Pazou. Project proposed and co-supervised by Dr Ing. K. Emery Assogba and Dr Ing. John O. R. Aoga.
+      - Supervised by Dr Ing. Géraud Azehoun Pazou, Dr Ing. K. Emery Assogba, Dr Ing. John O. R. Aoga and Dr M. Abel Konnon.
     file:
       label: Download the thesis (PDF)
       path: /assets/memoire-ingenieur.pdf

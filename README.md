@@ -16,7 +16,9 @@ Built with Jekyll and deployed natively by GitHub Pages from the `main` branch (
 | `_includes/head.html` | Title, description, hreflang, Open Graph, Twitter Card, JSON-LD |
 | `_includes/icon.html` | Filled inline SVG icons |
 | `assets/css/main.css` | Styles, light and dark themes |
-| `assets/js/site.js` | Theme toggle, priority+ navigation, active section |
+| `assets/js/site.js` | Theme toggle, priority+ navigation, active section, print |
+| `assets/fonts/` | Source Serif 4 and Source Sans 3, subset woff2 files and licences |
+| `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png` | SHL monogram icons (the SVG follows the light or dark theme) |
 | `assets/photo.jpg` | Portrait, square, about 600 px: sidebar and `og:image` (initials shown until it exists) |
 | `assets/cv-en.pdf`, `assets/cv-fr.pdf` | CV in each language; if only one exists, both pages link to it |
 | `assets/memoire-ingenieur.pdf` | Engineering thesis, Education section |
@@ -34,6 +36,21 @@ no dead link, no empty download icon.
 4. Empty optional fields (`count`, `pdf`, `doi`) are not displayed.
 5. Google Scholar and DBLP links: uncomment the keys in `_config.yml`.
 6. Links written in Markdown in the data files (`[text](https://...)`) open in a new tab automatically.
+
+## Top bar
+
+Monogram on the left, sections centred, language and theme on the right.
+The bar shows short labels (`nav` in the data files); section headings and
+the "Menu" drop-down use the full titles (`sections`). At most `nav_max`
+sections (6) are shown, chosen by `nav_priority` in `_config.yml`; fewer
+when space is short, none below 40em, where everything is in "Menu".
+
+## Typography
+
+Source Serif 4 for headings and the name, Source Sans 3 for text and
+navigation, both hosted in `assets/fonts/` (no external service). Details of
+the subsets in `assets/fonts/NOTICE.txt`. On French pages, a no-break space
+is inserted automatically before `: ; ? !` and inside `« »`.
 
 ## Publications and communications
 

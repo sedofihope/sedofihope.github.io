@@ -1,0 +1,13 @@
+# Fonts
+
+| File | Source | Changes |
+|---|---|---|
+| `shl-serif.woff2` | Source Serif 4, variable, version 4.004 | Latin and Latin Extended subset, weight axis limited to 400 to 600, optical size fixed at 24, renamed "SHL Serif" |
+| `shl-sans.woff2` | Source Sans 3, variable, version 3.052 | Latin and Latin Extended subset, weight axis limited to 400 to 700, renamed "SHL Sans" |
+
+Both fonts are released under the SIL Open Font License 1.1 (see the two
+`OFL-*.txt` files). Because the subsets are modified versions, they no longer
+carry the Reserved Font Name "Source".
+
+Originals: <https://github.com/adobe-fonts/source-serif>,
+<https://github.com/adobe-fonts/source-sans>.

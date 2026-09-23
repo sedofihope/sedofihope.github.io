@@ -10,17 +10,18 @@
   <header class="topbar">
     <div class="topbar-inner">
       <a class="monogram" href="{{ nav_base }}#top" aria-label="SHL, {{ c.ui.to_top }}">SHL</a>
-      <nav class="primary-nav" id="primary-nav" aria-label="{{ c.ui.nav_label }}">
+      <nav class="primary-nav" id="primary-nav" aria-label="{{ c.ui.nav_label }}" data-max="{{ site.nav_max }}">
         <ul class="nav-list">
 {%- for id in nav_ids %}
-          <li class="nav-item"><a href="{{ nav_base }}#{{ id }}" data-section="{{ id }}">{{ c.nav[id] }}</a></li>
+{%- assign prio = 99 %}{% for p in site.nav_priority %}{% if p == id %}{% assign prio = forloop.index0 %}{% endif %}{% endfor %}
+          <li class="nav-item" data-priority="{{ prio }}"><a href="{{ nav_base }}#{{ id }}" data-section="{{ id }}" title="{{ c.sections[id] }}">{{ c.nav[id] }}</a></li>
 {%- endfor %}
         </ul>
         <div class="nav-more" hidden>
           <button type="button" class="nav-more-button" aria-expanded="false" aria-controls="nav-overflow">{{ c.ui.menu }}{% include icon.html name="caret" %}</button>
           <ul class="nav-overflow" id="nav-overflow" hidden>
 {%- for id in nav_ids %}
-            <li><a href="{{ nav_base }}#{{ id }}" data-section="{{ id }}">{{ c.nav[id] }}</a></li>
+            <li><a href="{{ nav_base }}#{{ id }}" data-section="{{ id }}">{{ c.sections[id] }}</a></li>
 {%- endfor %}
           </ul>
         </div>
@@ -83,7 +84,12 @@
 
     <div class="content">
       <main id="main" tabindex="-1">
+{%- if page.lang_key == "fr" %}
+{%- comment -%} French typography: no-break space before : ; ? ! and inside « » {%- endcomment -%}
+{{ content | replace: " :", " :" | replace: " ;", " ;" | replace: " ?", " ?" | replace: " !", " !" | replace: "« ", "« " | replace: " »", " »" }}
+{%- else %}
 {{ content }}
+{%- endif %}
       </main>
 
       <footer class="site-footer">

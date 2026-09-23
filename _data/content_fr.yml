@@ -36,7 +36,7 @@ ui:
   talk_status:
     accepted: Résumé accepté
   colon: "\u00a0:"
-  last_updated: "Dernière mise à jour :"
+  last_updated: "Dernière mise à jour\u00a0:"
   date_format: fr
   months: [janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
 
@@ -69,17 +69,19 @@ jsonld:
     - Télédétection
     - Investigation numérique
 
+# Libellés courts de la barre. Les titres de section et le menu déroulant
+# utilisent les intitulés complets de `sections`.
 nav:
   about: À propos
-  research: Axes de recherche
+  research: Recherche
   news: Actualités
   publications: Publications
   talks: Communications
   teaching: Enseignement
-  awards: Prix et distinctions
+  awards: Distinctions
   education: Formation
   experience: Expérience
-  skills: Compétences techniques
+  skills: Compétences
 
 sections:
   about: À propos
@@ -230,7 +232,7 @@ education:
     text: Diplôme d'ingénieur de conception en Informatique, Logistique et Recherche Opérationnelle, [ENSGMM](https://ensgmm.unstim.bj), Abomey, Bénin.
     lines:
       - "Mémoire : *Sécurité des applications web : application des graphes de propriétés de code et des réseaux de neurones sur graphes pour la détection automatique des vulnérabilités XSS et SQLi*."
-      - Encadré par le Dr Ing. Géraud Azehoun Pazou. Projet proposé et co-encadré par le Dr Ing. K. Emery Assogba et le Dr Ing. John O. R. Aoga.
+      - Encadré par le Dr Ing. Géraud Azehoun Pazou, le Dr Ing. K. Emery Assogba, le Dr Ing. John O. R. Aoga et le Dr M. Abel Konnon.
     file:
       label: Télécharger le mémoire (PDF)
       path: /assets/memoire-ingenieur.pdf

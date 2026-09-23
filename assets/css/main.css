@@ -1,4 +1,25 @@
 /* ==========================================================================
+   Fonts, hosted locally (see assets/fonts/README.md).
+   Source Serif 4 for headings, Source Sans 3 for text, both variable,
+   Latin and Latin Extended.
+   ========================================================================== */
+@font-face {
+  font-family: "SHL Serif";
+  src: url("../fonts/shl-serif.woff2") format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SHL Sans";
+  src: url("../fonts/shl-sans.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
    Colours: black, white and greys; one accent, for links only.
    Light is the default; dark follows the system unless forced by the toggle.
    ========================================================================== */
@@ -9,12 +30,12 @@
   --accent: #1a55a8;
   --border: #d6d6d6;
   --surface: #f5f5f5;
-  --nav-h: 3rem;
+  --nav-h: 3.75rem;
   --sidebar-w: 16rem;
-  --content-w: 47.5rem;
+  --content-w: 36rem;
   --page-w: calc(var(--sidebar-w) + var(--content-w) + 8rem);
-  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-serif: "SHL Serif", "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
+  --font-sans: "SHL Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   color-scheme: light;
 }
 
@@ -59,15 +80,17 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-sans);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.05rem;
+  line-height: 1.65;
   overflow-wrap: break-word;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3 {
   font-family: var(--font-serif);
   font-weight: 600;
-  line-height: 1.25;
+  line-height: 1.2;
   color: var(--fg);
 }
 
@@ -118,7 +141,9 @@ strong { font-weight: 600; }
 main:focus { outline: none; }
 
 /* ==========================================================================
-   Top bar: section navigation on the left, language and theme on the right
+   Top bar, three columns: monogram | sections (centred) | language and theme.
+   The side columns share the free space equally, so the centre column stays
+   optically centred whatever the widths of the monogram and the controls.
    ========================================================================== */
 .topbar {
   position: sticky;
@@ -129,43 +154,47 @@ main:focus { outline: none; }
 }
 
 .topbar-inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(max-content, 1fr) minmax(0, auto) minmax(max-content, 1fr);
   align-items: center;
-  gap: 1rem;
-  max-width: var(--page-w);
+  column-gap: 2rem;
+  max-width: calc(var(--page-w) + 4rem);
   min-height: var(--nav-h);
   margin: 0 auto;
   padding: 0 1rem;
 }
 
 .monogram {
-  flex: none;
+  justify-self: start;
   display: flex;
   align-items: center;
   min-height: var(--nav-h);
   color: var(--fg);
-  font-family: var(--font-serif);
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-decoration: none;
 }
 
 .monogram:hover { text-decoration: underline; }
 
 .primary-nav {
-  flex: 1 1 auto;
+  justify-self: center;
   min-width: 0;
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.35rem;
 }
+
+/* On small screens everything is in "Menu", placed next to the controls */
+.primary-nav.nav-collapsed { justify-self: end; }
 
 .nav-list {
   min-width: 0;
   display: flex;
   flex-wrap: wrap;
-  column-gap: 1.25rem;
+  column-gap: 1.35rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -177,20 +206,21 @@ main:focus { outline: none; }
   align-items: center;
   min-height: var(--nav-h);
   color: var(--fg);
-  font-size: 0.875rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
   text-decoration: none;
   white-space: nowrap;
 }
 
 .nav-list a:hover { text-decoration: underline; }
 
-/* With JavaScript, the bar is a single line; overflowing items go to the menu */
+/* With JavaScript, the bar is a single line; the other items go to the menu */
 .js .nav-list {
   flex-wrap: nowrap;
   overflow: hidden;
 }
 
-.js:not(.nav-ready) .nav-list { visibility: hidden; }
+.js:not(.nav-ready) .primary-nav { visibility: hidden; }
 
 .nav-list a[aria-current="location"],
 .nav-more-button.has-active {
@@ -201,9 +231,6 @@ main:focus { outline: none; }
   position: relative;
   flex: none;
 }
-
-/* When no section fits (small screens), "Menu" moves next to the controls */
-.nav-collapsed .nav-more { margin-left: auto; }
 
 .nav-more-button {
   gap: 0.3rem;
@@ -253,11 +280,10 @@ main:focus { outline: none; }
 }
 
 .top-controls {
-  flex: none;
+  justify-self: end;
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-left: auto;
 }
 
 .lang-switch {
@@ -367,11 +393,11 @@ section, #top { scroll-margin-top: calc(var(--nav-h) + 1rem); }
 .profile-text { min-width: 0; }
 
 .name {
-  margin: 0 0 0.2rem;
+  margin: 0 0 0.3rem;
   font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  line-height: 1.25;
+  line-height: 1.15;
 }
 
 .name a { color: var(--fg); text-decoration: none; }
@@ -437,9 +463,9 @@ section, #top { scroll-margin-top: calc(var(--nav-h) + 1rem); }
 }
 
 main h2 {
-  margin: 2.25rem 0 0.9rem;
-  padding-bottom: 0.35rem;
-  font-size: 1.45rem;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.4rem;
+  font-size: 1.55rem;
   border-bottom: 1px solid var(--border);
 }
 
@@ -478,13 +504,15 @@ main ul {
 .dated li {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  row-gap: 0.1rem;
-  margin-bottom: 1rem;
+  row-gap: 0.3rem;
+  margin-bottom: 1.4rem;
 }
 
 .dated .date {
   color: var(--muted);
   font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   line-height: 1.5;
   font-variant-numeric: tabular-nums;
 }
@@ -578,15 +606,15 @@ main ul {
 @media (min-width: 40em) {
   .avatar { width: 6rem; height: 6rem; }
   .avatar-initials { font-size: 2rem; }
-  .name { font-size: 1.35rem; }
+  .name { font-size: 1.65rem; }
 
   .dated li {
-    grid-template-columns: 12.5rem minmax(0, 1fr);
-    column-gap: 1.5rem;
-    margin-bottom: 0.8rem;
+    grid-template-columns: 11rem minmax(0, 1fr);
+    column-gap: 2rem;
+    margin-bottom: 1.1rem;
   }
 
-  .dated .date { padding-top: 0.1rem; }
+  .dated .date { padding-top: 0.15rem; }
 
   .pub {
     grid-template-columns: 6.5rem minmax(0, 1fr);
@@ -642,10 +670,50 @@ main ul {
 
   .avatar-initials { font-size: 3rem; }
 
+  .name { font-size: 1.85rem; }
+
   .links { flex-direction: column; }
 }
 
+/* ==========================================================================
+   Print: white background, black text, no navigation or controls,
+   addresses of external links shown in brackets.
+   ========================================================================== */
 @media print {
-  .topbar, .skip-link { display: none; }
-  a { color: inherit; }
+  @page { margin: 18mm 16mm; }
+
+  html, body { background: #fff !important; }
+
+  *, *::before, *::after {
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  .topbar, .skip-link, .theme-toggle, .lang-switch, .more summary { display: none !important; }
+
+  body { font-size: 10.5pt; line-height: 1.45; }
+
+  a { text-decoration: none; }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    font-weight: 400;
+    overflow-wrap: anywhere;
+  }
+
+  .layout { display: block; max-width: none; padding: 0; }
+  .content { max-width: none; }
+  .sidebar { border-bottom: 1px solid #999; }
+  .sidebar-inner { position: static; max-height: none; overflow: visible; }
+  .avatar { width: 5rem; height: 5rem; }
+  .profile { flex-direction: row; align-items: center; }
+  .links { flex-direction: row; }
+  .links .icon, .location .icon { display: none; }
+  .venue, main h2, .site-footer, .sidebar { border-color: #999 !important; }
+
+  main h2, main h3 { break-after: avoid; }
+  li, .pub { break-inside: avoid; }
 }

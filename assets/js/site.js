@@ -33,17 +33,35 @@
   }
 
   // ---------------------------------------------------------------------
-  // Priority+ navigation: keep as many sections as fit in the bar, move
-  // the rest into the "Menu" drop-down, recompute on every width change.
+  // Print: open the collapsed news so that they are printed too.
+  // ---------------------------------------------------------------------
+  window.addEventListener("beforeprint", function () {
+    document.querySelectorAll("details.more").forEach(function (d) { d.open = true; });
+  });
+
+  // ---------------------------------------------------------------------
+  // Priority+ navigation. The bar shows at most `data-max` sections, picked
+  // by priority (`data-priority`, 0 first) and kept in page order; the
+  // others go to the "Menu" drop-down. Fewer are shown when space is short,
+  // none on small screens. Recomputed on every width change.
   // ---------------------------------------------------------------------
   var nav = document.getElementById("primary-nav");
   if (!nav) return;
+  var bar = nav.parentElement;
+  var monogram = bar.querySelector(".monogram");
+  var controls = bar.querySelector(".top-controls");
+  var small = window.matchMedia("(max-width: 39.99em)");
+  var maxItems = parseInt(nav.dataset.max, 10) || 6;
   var list = nav.querySelector(".nav-list");
   var items = Array.prototype.slice.call(list.children);
   var more = nav.querySelector(".nav-more");
   var moreButton = more.querySelector(".nav-more-button");
   var overflow = more.querySelector(".nav-overflow");
   var overflowItems = Array.prototype.slice.call(overflow.children);
+  // Item indexes, most important first.
+  var byPriority = items.map(function (li, i) { return i; }).sort(function (a, b) {
+    return (parseInt(items[a].dataset.priority, 10) || 0) - (parseInt(items[b].dataset.priority, 10) || 0);
+  });
 
   var widths = [];
   var moreWidth = 0;
@@ -58,25 +76,34 @@
     gap = parseFloat(getComputedStyle(list).columnGap) || 0;
   }
 
-  function layout() {
-    var available = nav.clientWidth;
-    var total = widths.reduce(function (sum, w) { return sum + w; }, 0) + gap * (widths.length - 1);
-    var visible = widths.length;
+  // Width left for the centre column: the side columns are equal (optical
+  // centring), so each takes the width of the wider of the two.
+  function available() {
+    var style = getComputedStyle(bar);
+    var inner = bar.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+    var columnGap = parseFloat(style.columnGap) || 0;
+    var side = Math.max(monogram.getBoundingClientRect().width, controls.getBoundingClientRect().width);
+    return inner - 2 * columnGap - 2 * side;
+  }
 
-    if (total > available) {
-      var room = available - moreWidth - gap;
-      var used = 0;
-      visible = 0;
-      while (visible < widths.length && used + widths[visible] + (visible ? gap : 0) <= room) {
-        used += widths[visible] + (visible ? gap : 0);
-        visible++;
-      }
+  function layout() {
+    var n = items.length;
+    var room = available();
+    var count = small.matches ? 0 : Math.min(maxItems, n);
+
+    for (; count > 0; count--) {
+      var chosen = byPriority.slice(0, count);
+      var width = chosen.reduce(function (sum, i) { return sum + widths[i]; }, 0) + gap * (count - 1);
+      if (count < n) width += gap + moreWidth;
+      if (width <= room) break;
     }
 
-    items.forEach(function (li, i) { li.hidden = i >= visible; });
-    overflowItems.forEach(function (li, i) { li.hidden = i < visible; });
-    more.hidden = visible === widths.length;
-    nav.classList.toggle("nav-collapsed", visible === 0);
+    var shown = {};
+    byPriority.slice(0, count).forEach(function (i) { shown[i] = true; });
+    items.forEach(function (li, i) { li.hidden = !shown[i]; });
+    overflowItems.forEach(function (li, i) { li.hidden = !!shown[i]; });
+    more.hidden = count === n;
+    nav.classList.toggle("nav-collapsed", count === 0);
     if (more.hidden) closeMenu();
     markActive(activeId);
   }
@@ -134,7 +161,7 @@
   refresh();
   root.classList.add("nav-ready");
   if ("ResizeObserver" in window) {
-    new ResizeObserver(function () { layout(); }).observe(nav);
+    new ResizeObserver(function () { layout(); }).observe(bar);
   } else {
     window.addEventListener("resize", layout);
   }
