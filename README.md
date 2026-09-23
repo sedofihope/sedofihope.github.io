@@ -65,13 +65,14 @@ Each entry has a date, a bold `title`, a short `text` and optional `links`
 (`url` for a web page, `file` for a document in the repository).
 
 The home page shows the `news_limit` most recent entries (8, set in `_config.yml`).
-Older entries sit in a native `<details>` element ("Show more" / "Voir plus"),
+With the archive disabled, older entries sit in a native `<details>` element
+("Show more" / "Show less"),
 so they are part of the served HTML and visible to search engines.
 
 ### News archive
 
-Planned once the list exceeds about thirty entries: a separate page per language,
-grouped by year (the year is the last word of each `date`).
+Enabled: a separate page per language, `/news/` and `/fr/news/`, grouped by
+year (the year is the last word of each `date`). To set it up again:
 
 1. Create `news/index.html`:
 

@@ -12,7 +12,7 @@
     {%- capture l_html -%}<a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a>{%- endcapture -%}
   {%- elsif l.file -%}
     {%- include file.html path=l.file -%}
-    {%- if file_found -%}{%- capture l_html -%}<a href="{{ l.file | relative_url }}" type="application/pdf">{{ l.label }}</a>{%- endcapture -%}{%- endif -%}
+    {%- if file_found -%}{%- capture l_html -%}<a href="{{ l.file | relative_url }}" type="application/pdf" target="_blank" rel="noopener">{{ l.label }}</a>{%- endcapture -%}{%- endif -%}
   {%- endif -%}
   {%- if l_html != "" -%}
     {%- if n_count > 0 -%}{%- assign n_links = n_links | append: " · " -%}{%- endif -%}

@@ -29,6 +29,7 @@ ui:
   language_label: Language
   menu: Menu
   show_more: Show more
+  show_less: Show less
   all_news: All news
   pdf: PDF
   doi: DOI
@@ -108,7 +109,7 @@ about: |
 
 research:
   - label: AI for Cybersecurity
-    text: machine learning and graph-based methods applied to security problems, with a focus on the automated detection of vulnerabilities in source code
+    text: machine learning and graph-based methods applied to security problems, with an interest in the automated detection of vulnerabilities in source code
   - label: AI for Environmental Monitoring
     text: remote sensing, hydrodynamic modelling and deep learning applied to inland water bodies (doctoral project)
   - label: Digital Forensics
@@ -134,7 +135,7 @@ news:
     text: Our work on the automated detection of vulnerabilities in source code, based on code property graphs and a heterogeneous graph transformer, has been accepted at CARI 2026. The paper will appear in the Lecture Notes in Computer Science series published by Springer.
   - date: November 2025
     title: Workshop on retrieval-augmented generation
-    text: Ran a hands-on workshop entitled "Build your own document chatbot with RAG" at the Benin Workshop on Artificial Intelligence (BWAI 2025), University of Abomey-Calavi. The session walked participants through document indexing, retrieval and answer generation, and ended with a working prototype built by each participant.
+    text: Ran a hands-on workshop entitled "Build your own document chatbot with RAG" at the Benin Workshop on Artificial Intelligence (BWAI 2025), University of Abomey-Calavi. The session covered document indexing, passage retrieval and answer generation, as well as advanced techniques, and ended with a demonstration.
     links:
       - label: bwai-ifri-uac.bj
         url: https://bwai-ifri-uac.bj
@@ -143,7 +144,7 @@ news:
   - date: October 2025
     title: Third prize at the ASIN AI Hackathon
     text: Third place at the artificial intelligence hackathon organised by the Agency for Information Systems and Digital Technology (ASIN Benin){count_clause}.
-    count: "" # TODO number of teams
+    count: "16" # number of teams
     count_clause: ", {count} teams taking part"
   - date: August 2025
     title: ACP Summer School, first African edition
@@ -191,7 +192,7 @@ talks:
   - title: "L'intelligence artificielle au service de la détection des vulnérabilités logicielles : état de l'art et étude de cas VulHGT"
     title_lang: fr
     kind: poster
-    status: accepted
+    # status: accepted
     authors:
       - name: Sèdofi Hope Lanmayikpohoue
         me: true
@@ -200,7 +201,7 @@ talks:
   - title: "Vision par ordinateur pour l'agriculture de précision au Bénin : entraînement d'un modèle de détection maïs/mauvaises herbes pour un robot de désherbage autonome"
     title_lang: fr
     kind: oral presentation
-    status: accepted
+    # status: accepted
     authors:
       - name: Mahugnon Géraud Azehoun Pazou
       - name: Parfait Botchi
@@ -244,27 +245,28 @@ education:
   - period: 2021 to 2024
     text: Engineering degree in Computer Science, Logistics and Operations Research, [National Higher School of Mathematical Engineering and Modelling (ENSGMM)](https://ensgmm.unstim.bj), Abomey, Benin.
     lines:
-      - "Thesis: *Web application security: code property graphs and graph neural networks for the automated detection of XSS and SQL injection vulnerabilities*."
-      - Supervised by Dr Ing. Géraud Azehoun Pazou, Dr Ing. K. Emery Assogba, Dr Ing. John O. R. Aoga and Dr M. Abel Konnon.
+      - "Thesis: *Web application security: applying CPGs (Code Property Graphs) and GNNs (Graph Neural Networks) to the automated detection of XSS and SQLi vulnerabilities*."
+      - Supervised by Dr Ing. M. Géraud Azehoun Pazou, Dr Ing. Emery K. Assogba, Dr Ing. John O. R. Aoga and Dr M. Abel Konnon.
     file:
       label: Download the thesis (PDF)
       path: /assets/memoire-ingenieur.pdf
   - period: 2019 to 2021
-    text: Preparatory classes for engineering schools (CPGE), INSPEI, Abomey, Benin.
+    text: Preparatory classes for engineering schools (CPGE), Engineering Sciences and Techniques, INSPEI, Abomey, Benin.
 
 experience:
   - period: August 2025 to present
-    text: "**COSIT Benin**, Abomey-Calavi. Developer specialised in cybersecurity. Web application security testing and mobile development."
+    text: "**COSIT BENIN**, Abomey-Calavi. Developer specialised in cybersecurity. Web application security testing and mobile development."
   - period: January 2025 to August 2025
     text: "**EMES SARL**, Cotonou. Backend and AI developer. Microservice backend, REST API for data processing, research on retrieval-augmented generation."
   - period: August 2023 to October 2023
-    text: "**MIFY SARL**, Abomey-Calavi. Mobile developer, internship."
+    text: "**MIFY SARL**, Abomey-Calavi. Mobile developer and research on blockchain technology, internship."
 
 # Optional section. Set to "" to hide it.
-skills: >-
-  Python, Dart, C, JavaScript. Deep learning, graph neural networks,
-  retrieval-augmented generation. Static analysis with Joern, web penetration
-  testing, OWASP Top 10. Flutter, FastAPI, PyTorch. Linux, Git, Docker.
+# skills: >-
+#   Python, Dart, C, JavaScript. Deep learning, graph neural networks,
+#   retrieval-augmented generation. Static analysis with Joern, web penetration
+#   testing, OWASP Top 10. Flutter, FastAPI, PyTorch. Linux, Git, Docker.
+skills: ""
 
 footer:
   location: Abomey-Calavi, Benin

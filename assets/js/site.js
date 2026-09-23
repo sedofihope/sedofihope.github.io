@@ -33,6 +33,24 @@
   }
 
   // ---------------------------------------------------------------------
+  // Language switch: open the other language at the same section. Section
+  // ids are identical in both languages.
+  // ---------------------------------------------------------------------
+  document.querySelectorAll("a[data-keep-position]").forEach(function (link) {
+    link.addEventListener("click", function () {
+      var bar = document.querySelector(".topbar");
+      var limit = (bar ? bar.offsetHeight : 0) + 24;
+      var current = null;
+      document.querySelectorAll("main section[id]").forEach(function (section) {
+        if (section.getBoundingClientRect().top <= limit) current = section.id;
+      });
+      var url = link.href.split("#")[0];
+      if (current && window.scrollY > 0) url += "#" + current;
+      link.href = url;
+    });
+  });
+
+  // ---------------------------------------------------------------------
   // Print: open the collapsed news so that they are printed too.
   // ---------------------------------------------------------------------
   window.addEventListener("beforeprint", function () {

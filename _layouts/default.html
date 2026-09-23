@@ -30,7 +30,8 @@
       <div class="top-controls">
         <ul class="lang-switch" aria-label="{{ c.ui.language_label }}">
 {%- for l in c.languages %}
-          <li>{% if l.current %}<a href="{{ l.url | relative_url }}" aria-current="page" aria-label="{{ l.label }}">{{ l.short }}</a>{% else %}<a href="{{ l.url | relative_url }}" hreflang="{{ l.code }}" lang="{{ l.code }}" aria-label="{{ l.label }}">{{ l.short }}</a>{% endif %}</li>
+{%- assign l_href = l.url | append: page.path_suffix | relative_url %}
+          <li>{% if l.current %}<a href="{{ l_href }}" aria-current="page" aria-label="{{ l.label }}">{{ l.short }}</a>{% else %}<a href="{{ l_href }}" hreflang="{{ l.code }}" lang="{{ l.code }}" aria-label="{{ l.label }}" data-keep-position>{{ l.short }}</a>{% endif %}</li>
 {%- endfor %}
         </ul>
         <button type="button" class="theme-toggle" id="theme-toggle" hidden aria-label="{{ c.ui.theme_to_dark }}" data-to-dark="{{ c.ui.theme_to_dark }}" data-to-light="{{ c.ui.theme_to_light }}">{% include icon.html name="moon" %}{% include icon.html name="sun" %}</button>
@@ -73,9 +74,9 @@
 {%- endif %}
 {%- if cv_file %}
 {%- if cv_file.path == cv_wanted %}
-          <li><a href="{{ cv_file.path | relative_url }}" type="application/pdf">{% include icon.html name="cv" %}<span>{{ c.ui.cv }}</span></a></li>
+          <li><a href="{{ cv_file.path | relative_url }}" type="application/pdf" target="_blank" rel="noopener">{% include icon.html name="cv" %}<span>{{ c.ui.cv }}</span></a></li>
 {%- else %}
-          <li><a href="{{ cv_file.path | relative_url }}" type="application/pdf" hreflang="{% if page.lang_key == 'fr' %}en{% else %}fr{% endif %}">{% include icon.html name="cv" %}<span>{{ c.ui.cv_other_language }}</span></a></li>
+          <li><a href="{{ cv_file.path | relative_url }}" type="application/pdf" target="_blank" rel="noopener" hreflang="{% if page.lang_key == 'fr' %}en{% else %}fr{% endif %}">{% include icon.html name="cv" %}<span>{{ c.ui.cv_other_language }}</span></a></li>
 {%- endif %}
 {%- endif %}
         </ul>

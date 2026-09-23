@@ -31,8 +31,8 @@ cv:
 # News: number of entries shown on the home page. The others sit behind
 # "Show more", or behind a link to /news/ once the archive is enabled
 # (see README.md, "News archive").
-news_limit: 8
-news_archive: false
+news_limit: 5
+news_archive: true
 
 # Top bar: at most `nav_max` sections, chosen in this order of priority
 # (they keep the page order in the bar); the others go to "Menu".

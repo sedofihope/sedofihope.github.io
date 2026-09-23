@@ -24,6 +24,7 @@ ui:
   language_label: Langue
   menu: Menu
   show_more: Voir plus
+  show_less: Voir moins
   all_news: Toutes les actualités
   pdf: PDF
   doi: DOI
@@ -100,11 +101,11 @@ about: |
 
   Mes travaux se situent à l'intersection de l'intelligence artificielle et de la sécurité. Ils s'étendent aujourd'hui à la surveillance environnementale par l'IA, objet de mon projet de thèse sur les plans d'eau continentaux du Bénin.
 
-  Je suis ouvert aux collaborations et aux échanges, n'hésitez pas à me contacter.
+  Je suis ouvert aux collaborations et aux échanges, n'hésitez donc pas à me contacter.
 
 research:
   - label: IA pour la cybersécurité
-    text: apprentissage automatique et méthodes à base de graphes appliqués aux problèmes de sécurité, avec un intérêt particulier pour la détection automatique des vulnérabilités dans le code source
+    text: apprentissage automatique et méthodes à base de graphes appliqués aux problèmes de sécurité, avec un intérêt pour la détection automatique des vulnérabilités dans le code source
   - label: IA pour la surveillance environnementale
     text: télédétection, modélisation hydrodynamique et apprentissage profond appliqués aux plans d'eau continentaux (projet de thèse)
   - label: Investigation numérique
@@ -127,7 +128,7 @@ news:
     text: Nos travaux sur la détection automatique des vulnérabilités dans le code source, fondés sur les graphes de propriétés de code et un transformer sur graphes hétérogènes, sont acceptés à CARI 2026. L'article paraîtra dans la série Lecture Notes in Computer Science de Springer.
   - date: novembre 2025
     title: Atelier sur la génération augmentée par recherche
-    text: Animation d'un atelier pratique intitulé « Créez votre chatbot documentaire avec le RAG » au Benin Workshop on Artificial Intelligence (BWAI 2025), à l'Université d'Abomey-Calavi. La séance a couvert l'indexation documentaire, la recherche de passages et la génération de réponses, et s'est conclue par un prototype fonctionnel construit par chaque participant.
+    text: Animation d'un atelier pratique intitulé « Créez votre chatbot documentaire avec le RAG » au Benin Workshop on Artificial Intelligence (BWAI 2025), à l'Université d'Abomey-Calavi. La séance a couvert l'indexation documentaire, la recherche de passages, la génération de réponses, ainsi que des techniques avancées, et s'est conclue par une démonstration.
     links:
       - label: bwai-ifri-uac.bj
         url: https://bwai-ifri-uac.bj
@@ -136,7 +137,7 @@ news:
   - date: octobre 2025
     title: Troisième prix au Hackathon IA de l'ASIN
     text: Troisième place au hackathon d'intelligence artificielle organisé par l'Agence des Systèmes d'Information et du Numérique (ASIN Bénin){count_clause}.
-    count: "" # TODO nombre d'équipes
+    count: "16" # TODO nombre d'équipes
     count_clause: ", sur {count} équipes"
   - date: août 2025
     title: ACP Summer School, première édition africaine
@@ -180,7 +181,7 @@ talks:
   - title: "L'intelligence artificielle au service de la détection des vulnérabilités logicielles : état de l'art et étude de cas VulHGT"
     title_lang: fr
     kind: poster
-    status: accepted
+    # status: accepted
     authors:
       - name: Sèdofi Hope Lanmayikpohoue
         me: true
@@ -189,7 +190,7 @@ talks:
   - title: "Vision par ordinateur pour l'agriculture de précision au Bénin : entraînement d'un modèle de détection maïs/mauvaises herbes pour un robot de désherbage autonome"
     title_lang: fr
     kind: communication orale
-    status: accepted
+    # status: accepted
     authors:
       - name: Mahugnon Géraud Azehoun Pazou
       - name: Parfait Botchi
@@ -231,27 +232,28 @@ education:
   - period: 2021 à 2024
     text: Diplôme d'ingénieur de conception en Informatique, Logistique et Recherche Opérationnelle, [ENSGMM](https://ensgmm.unstim.bj), Abomey, Bénin.
     lines:
-      - "Mémoire : *Sécurité des applications web : application des graphes de propriétés de code et des réseaux de neurones sur graphes pour la détection automatique des vulnérabilités XSS et SQLi*."
-      - Encadré par le Dr Ing. Géraud Azehoun Pazou, le Dr Ing. K. Emery Assogba, le Dr Ing. John O. R. Aoga et le Dr M. Abel Konnon.
+      - "Mémoire : *Sécurité des applications web : Application des CPG (Code Property Graphs) et des GNN (Graph Neural Networks) pour la détection automatique des vulnérabilités XSS et SQLi*."
+      - Encadré par le Dr Ing. M. Géraud Azehoun Pazou, le Dr Ing. Emery K. Assogba, le Dr Ing. John O. R. Aoga et le Dr M. Abel Konnon.
     file:
       label: Télécharger le mémoire (PDF)
       path: /assets/memoire-ingenieur.pdf
   - period: 2019 à 2021
-    text: Classes préparatoires aux écoles d'ingénieur, INSPEI, Abomey, Bénin.
+    text: Classes préparatoires aux écoles d'ingénieur, Sciences et Techniques de l'Ingénieur, INSPEI, Abomey, Bénin.
 
 experience:
   - period: août 2025 à aujourd'hui
-    text: "**COSIT Bénin**, Abomey-Calavi. Développeur spécialiste en cybersécurité. Tests de sécurité d'applications web et développement mobile."
+    text: "**COSIT BENIN**, Abomey-Calavi. Développeur spécialiste en cybersécurité. Tests de sécurité d'applications web et développement mobile."
   - period: janvier 2025 à août 2025
     text: "**EMES SARL**, Cotonou. Développeur backend et IA. Backend de microservice, API REST de traitement de données, recherches sur les systèmes RAG."
   - period: août 2023 à octobre 2023
-    text: "**MIFY SARL**, Abomey-Calavi. Développeur mobile, stage."
+    text: "**MIFY SARL**, Abomey-Calavi. Développeur mobile et recherche sur la technologie blockchain, stage."
 
 # Section facultative. Mettre "" pour la masquer.
-skills: >-
-  Python, Dart, C, JavaScript. Apprentissage profond, réseaux de neurones sur
-  graphes, génération augmentée par recherche. Analyse statique avec Joern, tests
-  d'intrusion web, OWASP Top 10. Flutter, FastAPI, PyTorch. Linux, Git, Docker.
+# skills: >-
+#   Python, Dart, C, JavaScript. Apprentissage profond, réseaux de neurones sur
+#   graphes, génération augmentée par recherche. Analyse statique avec Joern, tests
+#   d'intrusion web, OWASP Top 10. Flutter, FastAPI, PyTorch. Linux, Git, Docker.
+skills: ""
 
 footer:
   location: Abomey-Calavi, Bénin

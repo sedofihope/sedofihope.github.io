@@ -31,7 +31,7 @@ layout: default
           <p class="more-link"><a href="{{ home_url | append: 'news/' | relative_url }}">{{ c.ui.all_news }}</a></p>
 {%- else %}
           <details class="more">
-            <summary>{{ c.ui.show_more }}</summary>
+            <summary><span class="when-closed">{{ c.ui.show_more }}</span><span class="when-open">{{ c.ui.show_less }}</span></summary>
             <ul class="dated">
 {%- for n in news offset: site.news_limit %}
               {% include news-item.html item=n %}
@@ -68,7 +68,7 @@ layout: default
                 <p class="pub-authors">{% include authors.html authors=p.authors style="and" %}.</p>
                 <p class="pub-ref">{% include md.html text=p.reference %}</p>
 {%- if file_found or p_has_doi %}
-                <p class="pub-links">{% if file_found %}<a href="{{ p.pdf | relative_url }}" type="application/pdf">{{ c.ui.pdf }}</a>{% endif %}{% if file_found and p_has_doi %} · {% endif %}{% if p_has_doi %}<a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">{{ c.ui.doi }}</a>{% endif %}</p>
+                <p class="pub-links">{% if file_found %}<a href="{{ p.pdf | relative_url }}" type="application/pdf" target="_blank" rel="noopener">{{ c.ui.pdf }}</a>{% endif %}{% if file_found and p_has_doi %} · {% endif %}{% if p_has_doi %}<a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">{{ c.ui.doi }}</a>{% endif %}</p>
 {%- endif %}
               </div>
             </li>
@@ -128,7 +128,7 @@ layout: default
               <p>{% include md.html text=line %}</p>
 {%- endfor %}
 {%- if e.file %}{% include file.html path=e.file.path %}{% if file_found %}
-              <p class="entry-links"><a href="{{ e.file.path | relative_url }}" type="application/pdf">{% include icon.html name="cv" %}<span>{{ e.file.label }}</span></a></p>
+              <p class="entry-links"><a href="{{ e.file.path | relative_url }}" type="application/pdf" target="_blank" rel="noopener">{% include icon.html name="cv" %}<span>{{ e.file.label }}</span></a></p>
 {%- endif %}{% endif %}
             </div></li>
 {%- endfor %}
