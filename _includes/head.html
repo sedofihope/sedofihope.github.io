@@ -1,24 +1,33 @@
-{%- assign c = include.c -%}
+{%- comment -%}
+  Expects the variables set by vars.html (c, photo_file).
+  page.path_suffix is appended to each language root for the hreflang links
+  (empty on the home pages, "news/" on the news archives).
+{%- endcomment -%}
 {%- assign page_url = page.url | absolute_url -%}
-{%- if include.photo -%}{%- assign image_url = site.photo | absolute_url -%}{%- endif -%}
+{%- if photo_file -%}{%- assign image_url = site.photo | absolute_url -%}{%- endif -%}
+{%- if page.title_key -%}{%- assign page_title = c[page.title_key] -%}{%- else -%}{%- assign page_title = c.page_title -%}{%- endif -%}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ c.page_title }}</title>
+  <title>{{ page_title }}</title>
   <meta name="description" content="{{ c.description | strip | escape }}">
   <meta name="author" content="{{ site.author.name }}">
+  <meta name="robots" content="index, follow">
   <meta name="color-scheme" content="light dark">
+{%- if site.google_site_verification %}
+  <meta name="google-site-verification" content="{{ site.google_site_verification }}">
+{%- endif %}
   <link rel="canonical" href="{{ page_url }}">
 {%- for l in c.languages %}
-  <link rel="alternate" hreflang="{{ l.code }}" href="{{ l.url | absolute_url }}">
+  <link rel="alternate" hreflang="{{ l.code }}" href="{{ l.url | append: page.path_suffix | absolute_url }}">
 {%- endfor %}
-  <link rel="alternate" hreflang="x-default" href="{{ '/' | absolute_url }}">
+  <link rel="alternate" hreflang="x-default" href="{{ '/' | append: page.path_suffix | absolute_url }}">
 
-  <!-- Apply the stored theme before first paint to avoid a flash -->
-  <script>(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+  <!-- Before first paint: mark JavaScript as available, apply the stored theme -->
+  <script>(function(){var d=document.documentElement;d.classList.add("js");try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")d.setAttribute("data-theme",t)}catch(e){}})();</script>
 
   <!-- Open Graph -->
   <meta property="og:type" content="profile">
-  <meta property="og:title" content="{{ c.page_title }}">
+  <meta property="og:title" content="{{ page_title }}">
   <meta property="og:description" content="{{ c.description | strip | escape }}">
   <meta property="og:url" content="{{ page_url }}">
   <meta property="og:site_name" content="{{ site.author.name }}">
@@ -35,46 +44,57 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="{{ c.page_title }}">
+  <meta name="twitter:title" content="{{ page_title }}">
   <meta name="twitter:description" content="{{ c.description | strip | escape }}">
 {%- if image_url %}
   <meta name="twitter:image" content="{{ image_url }}">
 {%- endif %}
 
-  <!-- Structured data -->
+  <!-- Structured data: a profile page whose main entity is the person -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": {{ site.author.name | jsonify }},
-    "alternateName": {{ site.author.name_ascii | jsonify }},
-    "givenName": {{ site.author.given_name | jsonify }},
-    "familyName": {{ site.author.family_name | jsonify }},
-    "url": {{ '/' | absolute_url | jsonify }},
-    "email": {{ site.author.email | prepend: 'mailto:' | jsonify }},
+    "@type": "ProfilePage",
+    "url": {{ page_url | jsonify }},
+    "inLanguage": {{ c.lang | jsonify }},
+    "dateCreated": {{ site.created | date_to_xmlschema | jsonify }},
+    "dateModified": {{ site.time | date_to_xmlschema | jsonify }},
+    "mainEntity": {
+      "@type": "Person",
+      "@id": {{ '/#person' | absolute_url | jsonify }},
+      "name": {{ site.author.name | jsonify }},
+      "alternateName": {{ site.author.name_ascii | jsonify }},
+      "givenName": {{ site.author.given_name | jsonify }},
+      "familyName": {{ site.author.family_name | jsonify }},
+      "url": {{ '/' | absolute_url | jsonify }},
+      "email": {{ site.author.email | prepend: 'mailto:' | jsonify }},
 {%- if image_url %}
-    "image": {{ image_url | jsonify }},
+      "image": {{ image_url | jsonify }},
 {%- endif %}
-    "jobTitle": {{ c.jsonld.job_title | jsonify }},
-    "affiliation": {
-      "@type": "CollegeOrUniversity",
-      "name": {{ c.jsonld.affiliation | jsonify }}
-    },
-    "alumniOf": {
-      "@type": "CollegeOrUniversity",
-      "name": {{ c.jsonld.alumni_of | jsonify }}
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Abomey-Calavi",
-      "addressCountry": "BJ"
-    },
-    "knowsAbout": {{ c.jsonld.knows_about | jsonify }},
-    "sameAs": [
-      "https://orcid.org/{{ site.author.orcid }}",
-      "https://github.com/{{ site.author.github }}",
-      "https://www.linkedin.com/in/{{ site.author.linkedin }}"
-    ]
+      "description": {{ c.description | strip | jsonify }},
+      "jobTitle": {{ c.jsonld.job_title | jsonify }},
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": {{ c.jsonld.affiliation | jsonify }},
+        "url": "https://www.unstim.bj"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": {{ c.jsonld.alumni_of | jsonify }},
+        "url": "https://ensgmm.unstim.bj"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abomey-Calavi",
+        "addressCountry": "BJ"
+      },
+      "knowsAbout": {{ c.jsonld.knows_about | jsonify }},
+      "sameAs": [
+        "https://orcid.org/{{ site.author.orcid }}",
+        "https://github.com/{{ site.author.github }}",
+        "https://www.linkedin.com/in/{{ site.author.linkedin }}"
+      ]
+    }
   }
   </script>
 

@@ -1,0 +1,25 @@
+{%- comment -%}
+  Shared variables for every layout: the content file for the page language,
+  the displayed entries (drafts removed) and the list of visible sections.
+  Liquid assigns made in an include stay available to the caller.
+{%- endcomment -%}
+{%- assign data_key = "content_" | append: page.lang_key -%}
+{%- assign c = site.data[data_key] -%}
+{%- assign photo_file = site.static_files | where: "path", site.photo | first -%}
+{%- assign cv_file = site.static_files | where: "path", site.cv | first -%}
+{%- for l in c.languages -%}{%- if l.current -%}{%- assign home_url = l.url -%}{%- endif -%}{%- endfor -%}
+
+{%- assign news = c.news | where_exp: "i", "i.draft != true" -%}
+{%- assign pubs_conf = c.publications.conference | where_exp: "i", "i.draft != true" -%}
+{%- assign pubs_journal = c.publications.journal | where_exp: "i", "i.draft != true" -%}
+{%- assign pubs_count = pubs_conf.size | plus: pubs_journal.size -%}
+{%- assign talks = c.talks | where_exp: "i", "i.draft != true" -%}
+{%- assign awards = c.awards | where_exp: "i", "i.draft != true" -%}
+{%- assign education = c.education | where_exp: "i", "i.draft != true" -%}
+{%- assign experience = c.experience | where_exp: "i", "i.draft != true" -%}
+
+{%- capture nav_ids -%}about{% if c.research.size > 0 %},research{% endif %}{% if news.size > 0 %},news{% endif %}{% if pubs_count > 0 %},publications{% endif %}{% if talks.size > 0 %},talks{% endif %}{% if c.teaching %},teaching{% endif %}{% if awards.size > 0 %},awards{% endif %}{% if education.size > 0 %},education{% endif %}{% if experience.size > 0 %},experience{% endif %}{% if c.skills != "" %},skills{% endif %}{%- endcapture -%}
+{%- assign nav_ids = nav_ids | split: "," -%}
+
+{%- comment -%} Section links are plain anchors on the home page, absolute elsewhere. {%- endcomment -%}
+{%- if page.layout == "home" -%}{%- assign nav_base = "" -%}{%- else -%}{%- assign nav_base = home_url | relative_url -%}{%- endif -%}

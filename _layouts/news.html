@@ -1,0 +1,20 @@
+---
+layout: default
+---
+{%- comment -%}
+  News archive, grouped by year (the year is the last word of each date).
+  Not published yet: see "News archive" in README.md to enable it.
+{%- endcomment -%}
+{%- include vars.html -%}
+        <h1 class="page-title">{{ c.sections.news }}</h1>
+{%- assign by_year = news | group_by_exp: "n", "n.date | split: ' ' | last" %}
+{%- for year in by_year %}
+        <section id="year-{{ year.name }}" aria-labelledby="year-{{ year.name }}-h">
+          <h2 id="year-{{ year.name }}-h">{{ year.name }}</h2>
+          <ul class="dated">
+{%- for n in year.items %}
+            {% include news-item.html item=n %}
+{%- endfor %}
+          </ul>
+        </section>
+{%- endfor %}

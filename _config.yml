@@ -17,8 +17,20 @@ author:
   # google_scholar: ""
   # dblp: ""
 
+created: 2026-09-23
+
 photo: /assets/photo.jpg
 cv: /assets/cv.pdf
+
+# News: number of entries shown on the home page. The others sit behind
+# "Show more", or behind a link to /news/ once the archive is enabled
+# (see README.md, "News archive").
+news_limit: 8
+news_archive: false
+
+# Google Search Console: either drop the HTML verification file at the root
+# of the repository, or put the meta tag token here.
+# google_site_verification: ""
 
 # Build
 markdown: kramdown

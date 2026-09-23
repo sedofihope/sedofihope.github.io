@@ -1,1 +1,7 @@
-{{ include.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}
+{%- comment -%}
+  Markdown from the data files. External links open in a new tab.
+  Usage: {% include md.html text=x %} for inline text,
+         {% include md.html text=x block=true %} for paragraphs.
+{%- endcomment -%}
+{%- assign md_out = include.text | markdownify | replace: '<a href="http', '<a target="_blank" rel="noopener" href="http' -%}
+{%- if include.block -%}{{ md_out }}{%- else -%}{{ md_out | remove: '<p>' | remove: '</p>' | strip }}{%- endif -%}

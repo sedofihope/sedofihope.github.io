@@ -10,6 +10,7 @@
 lang: en-GB
 og_locale: en_GB
 page_title: Sèdofi Hope Lanmayikpohoue - Homepage
+news_page_title: News - Sèdofi Hope Lanmayikpohoue
 description: >-
   Sèdofi Hope Lanmayikpohoue, doctoral student and teaching assistant in computer
   engineering at UNSTIM, Benin. Research on AI for software security: static
@@ -22,9 +23,12 @@ ui:
   photo_alt: Portrait of Sèdofi Hope Lanmayikpohoue
   email: Email
   cv: CV (PDF)
-  theme_to_dark: Dark theme
-  theme_to_light: Light theme
+  theme_to_dark: Switch to dark theme
+  theme_to_light: Switch to light theme
   language_label: Language
+  menu: Menu
+  show_more: Show more
+  all_news: All news
   pdf: PDF
   colon: ":"
   last_updated: "Last updated:"
@@ -32,18 +36,19 @@ ui:
 
 languages:
   - code: en-GB
+    short: EN
     label: English
     url: /
     current: true
   - code: fr
+    short: FR
     label: Français
     url: /fr/
 
 sidebar:
   affiliation: UNSTIM, Benin
-  research_line: >-
-    AI for software security: static vulnerability detection with code property
-    graphs and graph neural networks.
+  affiliation_url: https://www.unstim.bj
+  research_line: Focusing on the intersection of AI, software engineering and security.
   location: Abomey-Calavi, Benin
 
 jsonld:
@@ -59,16 +64,16 @@ jsonld:
     - AI for environmental monitoring
 
 nav:
-  about: About
-  research: Research
+  about: About Me
+  research: Research Interests
   news: News
   publications: Publications
-  talks: Talks
+  talks: Talks and Communications
   teaching: Teaching
-  awards: Awards
+  awards: Awards and Competitions
   education: Education
   experience: Experience
-  skills: Skills
+  skills: Technical Skills
 
 sections:
   about: About
@@ -83,9 +88,9 @@ sections:
   skills: Technical Skills
 
 about: |
-  I am a doctoral student and teaching assistant in computer engineering at the National University of Sciences, Technologies, Engineering and Mathematics (UNSTIM), Benin. I received my engineering degree in 2024 from the National Higher School of Mathematical Engineering and Modelling (ENSGMM), where my final-year thesis dealt with the automated detection of XSS and SQL injection vulnerabilities through code property graphs and graph neural networks, under the supervision of Dr Ing. Géraud Azehoun Pazou, who also supervises my doctoral research.
+  I am a doctoral student and teaching assistant in computer engineering at the [National University of Sciences, Technologies, Engineering and Mathematics (UNSTIM)](https://www.unstim.bj), Benin. I received my engineering degree in 2024 from the National Higher School of Mathematical Engineering and Modelling (ENSGMM), where my final-year thesis dealt with the automated detection of XSS and SQL injection vulnerabilities through code property graphs and graph neural networks, under the supervision of Dr Ing. Géraud Azehoun Pazou, who also supervises my doctoral research.
 
-  My work sits at the intersection of artificial intelligence and security. It now extends to AI-based environmental monitoring, which is the subject of my doctoral project on inland water bodies in Benin. My family name is Lanmayikpohoue.
+  My work sits at the intersection of artificial intelligence and security. It now extends to AI-based environmental monitoring, which is the subject of my doctoral project on inland water bodies in Benin.
 
   I am open to collaboration and discussion, so please feel free to get in touch.
 
@@ -175,7 +180,7 @@ education:
   - period: Ongoing # TODO replace with "[year] to present"
     text: "PhD student in computer engineering, UNSTIM, Benin. Doctoral project on AI-based monitoring of inland water bodies. Advisor: Dr Ing. Géraud Azehoun Pazou."
   - period: 2021 to 2024
-    text: "Engineering degree in Computer Science, Logistics and Operations Research, National Higher School of Mathematical Engineering and Modelling (ENSGMM), Abomey, Benin. Final-year thesis: *Web application security: code property graphs and graph neural networks for the automated detection of XSS and SQL injection vulnerabilities*."
+    text: "Engineering degree in Computer Science, Logistics and Operations Research, [National Higher School of Mathematical Engineering and Modelling (ENSGMM)](https://ensgmm.unstim.bj), Abomey, Benin. Final-year thesis: *Web application security: code property graphs and graph neural networks for the automated detection of XSS and SQL injection vulnerabilities*."
   - period: 2019 to 2021
     text: Preparatory classes for engineering schools (CPGE), INSPEI, Abomey, Benin.
 
