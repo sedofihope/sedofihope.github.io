@@ -7,10 +7,11 @@ og_locale: fr_FR
 page_title: Sèdofi Hope Lanmayikpohoue - Page personnelle
 news_page_title: Actualités - Sèdofi Hope Lanmayikpohoue
 description: >-
-  Sèdofi Hope Lanmayikpohoue, doctorant et assistant d'enseignement en génie
-  informatique à l'UNSTIM, Bénin. Recherche en IA pour la sécurité logicielle :
-  détection statique de vulnérabilités, graphes de propriétés de code, réseaux
-  de neurones sur graphes.
+  Sèdofi Hope Lanmayikpohoue, doctorant en Sciences de l'Ingénieur (Informatique
+  et Intelligence Artificielle) à l'UNSTIM, Bénin, et assistant d'enseignement en
+  génie informatique. Recherche en IA pour la cybersécurité, notamment la
+  détection de vulnérabilités dans le code source, et en IA pour la surveillance
+  environnementale.
 
 ui:
   skip: Aller au contenu principal
@@ -49,16 +50,16 @@ sidebar:
   location: Abomey-Calavi, Bénin
 
 jsonld:
-  job_title: Doctorant et assistant d'enseignement en génie informatique
+  job_title: Doctorant en Sciences de l'Ingénieur (Informatique et Intelligence Artificielle) et assistant d'enseignement en génie informatique
   affiliation: Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques (UNSTIM)
   alumni_of: École Nationale Supérieure de Génie Mathématique et Modélisation (ENSGMM)
   knows_about:
-    - Sécurité logicielle
-    - Détection statique de vulnérabilités
-    - Graphes de propriétés de code
+    - IA pour la cybersécurité
+    - Détection de vulnérabilités dans le code source
     - Réseaux de neurones sur graphes
-    - Graphes de connaissances de sécurité
     - IA pour la surveillance environnementale
+    - Télédétection
+    - Investigation numérique
 
 nav:
   about: À propos
@@ -85,21 +86,19 @@ sections:
   skills: Compétences techniques
 
 about: |
-  Je suis doctorant et assistant d'enseignement en génie informatique à l'[Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques (UNSTIM)](https://www.unstim.bj), au Bénin. J'ai obtenu mon diplôme d'ingénieur en 2024 à l'École Nationale Supérieure de Génie Mathématique et Modélisation (ENSGMM), avec un mémoire sur la détection automatique des vulnérabilités XSS et par injection SQL à l'aide des graphes de propriétés de code et des réseaux de neurones sur graphes, sous la direction du Dr Ing. Géraud Azehoun Pazou, qui encadre également mes travaux de doctorat.
+  Je suis doctorant en Sciences de l'Ingénieur, spécialité Informatique et Intelligence Artificielle, à l'[Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques (UNSTIM)](https://www.unstim.bj), au Bénin, où je suis également assistant d'enseignement en génie informatique. J'ai obtenu mon diplôme d'ingénieur en 2024 à l'École Nationale Supérieure de Génie Mathématique et Modélisation (ENSGMM), avec un mémoire sur la détection automatique des vulnérabilités XSS et par injection SQL à l'aide des graphes de propriétés de code et des réseaux de neurones sur graphes, sous la direction du Dr Ing. Géraud Azehoun Pazou, qui encadre également mes travaux de doctorat.
 
   Mes travaux se situent à l'intersection de l'intelligence artificielle et de la sécurité. Ils s'étendent aujourd'hui à la surveillance environnementale par l'IA, objet de mon projet de thèse sur les plans d'eau continentaux du Bénin.
 
   Je suis ouvert aux collaborations et aux échanges, n'hésitez pas à me contacter.
 
 research:
-  - label: Sécurité logicielle
-    text: détection statique de vulnérabilités dans les applications web (graphes de propriétés de code, réseaux de neurones sur graphes hétérogènes), XSS et injection SQL
-  - label: Graphes de connaissances de sécurité
-    text: modélisation CVE-CWE-CPE, prédiction de liens inductive
+  - label: IA pour la cybersécurité
+    text: apprentissage automatique et méthodes à base de graphes appliqués aux problèmes de sécurité, avec un intérêt particulier pour la détection automatique des vulnérabilités dans le code source
   - label: IA pour la surveillance environnementale
-    text: télédétection, modélisation hydrodynamique et apprentissage automatique appliqués aux plans d'eau continentaux (projet de thèse)
-  - label: Vision par ordinateur pour la robotique
-    text: modèles de perception pour robots agricoles
+    text: télédétection, modélisation hydrodynamique et apprentissage profond appliqués aux plans d'eau continentaux (projet de thèse)
+  - label: Investigation numérique
+    text: axe émergent, notamment l'apport des méthodes d'apprentissage à l'analyse de preuves et à la conduite d'investigations
 
 # Ordre antichronologique, la plus récente en haut.
 news:
@@ -154,7 +153,7 @@ teaching:
   place: UNSTIM, Bénin
   period: février 2025 à aujourd'hui
   courses: Algorithmique ; programmation Python (CPGE, première année) ; méthodes numériques avec MATLAB et Octave (CPGE, deuxième année).
-  other: Participation à la conception d'exercices, à la correction des évaluations et à l'encadrement de projets étudiants et de stagiaires.
+  other: Participation à la rédaction des notes de cours, à la conception d'exercices, à la correction des évaluations et à l'encadrement de projets étudiants et de stagiaires.
 
 awards:
   - date: octobre 2025
@@ -175,7 +174,7 @@ awards:
 
 education:
   - period: En cours # TODO remplacer par "[année] à aujourd'hui"
-    text: "Doctorat en génie informatique, UNSTIM, Bénin. Projet de thèse sur la surveillance des plans d'eau continentaux par l'IA. Directeur : Dr Ing. Géraud Azehoun Pazou."
+    text: "Doctorat en Sciences de l'Ingénieur, spécialité Informatique et Intelligence Artificielle, UNSTIM, Bénin. Projet de thèse sur la surveillance des plans d'eau continentaux par l'IA. Directeur : Dr Ing. Géraud Azehoun Pazou."
   - period: 2021 à 2024
     text: "Diplôme d'ingénieur de conception en Informatique, Logistique et Recherche Opérationnelle, [ENSGMM](https://ensgmm.unstim.bj), Abomey, Bénin. Mémoire : *Sécurité des applications web : application des graphes de propriétés de code et des réseaux de neurones sur graphes pour la détection automatique des vulnérabilités XSS et SQLi*."
   - period: 2019 à 2021
