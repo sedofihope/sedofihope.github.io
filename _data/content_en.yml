@@ -1,4 +1,4 @@
-# English content (reference version).
+# English content (reference version), written in British English.
 # Any change is made here first, then mirrored in content_fr.yml.
 #
 # Conventions
@@ -42,8 +42,7 @@ ui:
   talk_status:
     accepted: Accepted abstract
   colon: ":"
-  last_updated: "Last updated:"
-  date_format: "%-d %B %Y"
+  year: "%Y" # date format of the copyright year in the footer
 
 languages:
   - code: en-GB
@@ -154,7 +153,10 @@ news:
         url: https://school.a4cp.org/summer2025/
   - date: June 2025
     title: CITA 2025 and remote sensing training
-    text: Took part in the conference of Benin's National Academy of Sciences, Arts and Letters devoted to information technology for sustainable agriculture, and followed the training session on drones and remote sensing. This is the field my doctoral work now builds on.
+    text: Attended the 3rd International Conference on Information and Communication Technologies (CITA) of Benin's National Academy of Sciences, Arts and Letters (ANSALB), held in Cotonou from 26 to 27 June 2025 under the theme "Emerging Technologies and Sustainable Agriculture", and took part in the practical workshop on drones and remote sensing for sustainable agriculture. This is the field my doctoral work now builds on.
+    links:
+      - label: cita-ansalb.bj
+        url: https://www.cita-ansalb.bj/2025
   - date: June 2025
     title: Finalist at HackerLab 2025
     text: Reached the final of the national cybersecurity competition organised by ASIN Benin{count_clause}. Third consecutive year as a finalist.
@@ -188,6 +190,9 @@ publications:
 
 # Same conventions as publications. Titles stay in their original language;
 # `title_lang` marks a title written in another language than the page.
+# `links` attaches resources to a communication (slides, poster, recording):
+# `label` plus either `url` for a web page or `file` for a document in the
+# repository, hidden until the file exists.
 talks:
   - title: "L'intelligence artificielle au service de la détection des vulnérabilités logicielles : état de l'art et étude de cas VulHGT"
     title_lang: fr
@@ -209,9 +214,13 @@ talks:
       - name: Sèdofi Hope Lanmayikpohoue
         me: true
     venue: 3rd International Scientific Colloquium of UNSTIM, Abomey campus, Benin, 13 to 16 October 2026.
-  - title: Build your own document chatbot with RAG
+  - title: "Créez votre chatbot documentaire avec le RAG"
+    title_lang: fr
     kind: workshop
     venue: Benin Workshop on Artificial Intelligence (BWAI 2025), University of Abomey-Calavi, 17 to 21 November 2025.
+    links:
+      - label: Slides (PDF)
+        file: /assets/slides-bwai-2025.pdf
 
 teaching:
   role: Teaching Assistant
@@ -270,3 +279,4 @@ skills: ""
 
 footer:
   location: Abomey-Calavi, Benin
+  rights: All rights reserved

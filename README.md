@@ -31,11 +31,13 @@ no dead link, no empty download icon.
 ## Editing content
 
 1. Edit `_data/content_en.yml` first, then mirror the change in `_data/content_fr.yml`.
-2. `draft: true` keeps an entry in the data without displaying it.
-3. A section with no displayed entry is hidden, together with its navigation link.
-4. Empty optional fields (`count`, `pdf`, `doi`) are not displayed.
-5. Google Scholar and DBLP links: uncomment the keys in `_config.yml`.
-6. Links written in Markdown in the data files (`[text](https://...)`) open in a new tab automatically.
+2. The English text is written in British English (spelling, date formats);
+   keep it that way when editing.
+3. `draft: true` keeps an entry in the data without displaying it.
+4. A section with no displayed entry is hidden, together with its navigation link.
+5. Empty optional fields (`count`, `pdf`, `doi`) are not displayed.
+6. Google Scholar and DBLP links: uncomment the keys in `_config.yml`.
+7. Links written in Markdown in the data files (`[text](https://...)`) open in a new tab automatically.
 
 ## Top bar
 
@@ -58,6 +60,11 @@ Each entry has a `status`: `accepted` ("Accepted, to appear", or "Accepted
 abstract" for a communication), `in_press` ("In press") or `published` (no
 label). Titles and bibliographic references are not translated. The site
 owner is marked `me: true` in `authors` and shown in bold.
+
+A communication may carry `links` to attach resources (slides, poster,
+recording): a `label` plus either a `url` for a web page or a `file` for a
+document in the repository, exactly as in news. File links stay hidden until
+the file exists.
 
 ## News
 

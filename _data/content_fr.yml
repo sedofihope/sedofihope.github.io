@@ -37,9 +37,7 @@ ui:
   talk_status:
     accepted: Résumé accepté
   colon: "\u00a0:"
-  last_updated: "Dernière mise à jour\u00a0:"
-  date_format: fr
-  months: [janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
+  year: "%Y" # format de l'année du copyright dans le pied de page
 
 languages:
   - code: en-GB
@@ -147,7 +145,10 @@ news:
         url: https://school.a4cp.org/summer2025/
   - date: juin 2025
     title: CITA 2025 et formation en télédétection
-    text: Participation à la conférence de l'Académie Nationale des Sciences, Arts et Lettres du Bénin consacrée aux TIC pour une agriculture durable, et suivi de la formation « Drones et télédétection pour une agriculture durable ». C'est le domaine sur lequel s'appuient aujourd'hui mes travaux de thèse.
+    text: Participation à la 3e Conférence Internationale sur les Technologies de l'Information et de la Communication (CITA) de l'Académie Nationale des Sciences, Arts et Lettres du Bénin (ANSALB), tenue à Cotonou du 26 au 27 juin 2025 sur le thème « Technologies émergentes et agriculture durable », et suivi de l'atelier pratique « Drones et télédétection pour une agriculture durable ». C'est le domaine sur lequel s'appuient aujourd'hui mes travaux de thèse.
+    links:
+      - label: cita-ansalb.bj
+        url: https://www.cita-ansalb.bj/2025
   - date: juin 2025
     title: Finaliste du HackerLab 2025
     text: Finale de la compétition nationale de cybersécurité organisée par l'ASIN Bénin{count_clause}. Troisième année consécutive en finale.
@@ -177,6 +178,9 @@ publications:
 
 # Mêmes conventions que les publications. Les titres restent dans leur langue
 # d'origine.
+# `links` attache des ressources à une communication (diapos, poster,
+# enregistrement) : `label` plus soit `url` (page web), soit `file`
+# (document du dépôt, masqué tant que le fichier n'existe pas).
 talks:
   - title: "L'intelligence artificielle au service de la détection des vulnérabilités logicielles : état de l'art et étude de cas VulHGT"
     title_lang: fr
@@ -201,6 +205,9 @@ talks:
   - title: Créez votre chatbot documentaire avec le RAG
     kind: atelier
     venue: Benin Workshop on Artificial Intelligence (BWAI 2025), Université d'Abomey-Calavi, 17 au 21 novembre 2025.
+    links:
+      - label: Diapositives (PDF)
+        file: /assets/slides-bwai-2025.pdf
 
 teaching:
   role: Assistant d'enseignement
@@ -257,3 +264,4 @@ skills: ""
 
 footer:
   location: Abomey-Calavi, Bénin
+  rights: Tous droits réservés

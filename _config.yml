@@ -9,9 +9,8 @@ author:
   name_ascii: Sedofi Hope Lanmayikpohoue
   given_name: Sèdofi Hope
   family_name: Lanmayikpohoue
-  # Institutional address first; the personal one is shown second, smaller.
+  # Institutional address only; no personal address is published.
   email: slanmayikpohoue@unstim.bj
-  email_personal: sedofihope@gmail.com
   orcid: 0009-0000-9650-0365
   github: sedofihope
   linkedin: sedofihope
@@ -58,3 +57,5 @@ exclude:
   - vendor
   - .bundle
   - .jekyll-cache
+  # Local conversation exports (gitignored, may contain private details)
+  - 20*.txt

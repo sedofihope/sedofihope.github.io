@@ -85,12 +85,16 @@ layout: default
           <ul class="plain-list talks">
 {%- for t in talks %}
 {%- assign t_status = c.ui.talk_status[t.status] %}
+{%- include links.html links=t.links %}
             <li>
               <p><strong{% if t.title_lang and t.title_lang != page.lang_key %} lang="{{ t.title_lang }}"{% endif %}>{{ t.title }}</strong>{% if t.kind %} ({{ t.kind }}){% endif %}.{% if t_status %} <span class="status">{{ t_status }}</span>{% endif %}</p>
 {%- if t.authors %}
               <p>{% include authors.html authors=t.authors %}.</p>
 {%- endif %}
               <p class="talk-venue">{% include md.html text=t.venue %}</p>
+{%- if links_count > 0 %}
+              <p class="entry-links">{{ links_html }}</p>
+{%- endif %}
             </li>
 {%- endfor %}
           </ul>

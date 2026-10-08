@@ -1,0 +1,22 @@
+{%- comment -%}
+  Builds `links_html` (labels joined with ·) and `links_count` from
+  include.links: a list of entries with `label` and either `url` (web page)
+  or `file` (document in the repository). A file link is shown only when the
+  file is in the repository. Used by news entries and communications.
+{%- endcomment -%}
+{%- assign links_html = "" -%}
+{%- assign links_count = 0 -%}
+{%- for l in include.links -%}
+  {%- assign l_html = "" -%}
+  {%- if l.url -%}
+    {%- capture l_html -%}<a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a>{%- endcapture -%}
+  {%- elsif l.file -%}
+    {%- include file.html path=l.file -%}
+    {%- if file_found -%}{%- capture l_html -%}<a href="{{ l.file | relative_url }}" type="application/pdf" target="_blank" rel="noopener">{{ l.label }}</a>{%- endcapture -%}{%- endif -%}
+  {%- endif -%}
+  {%- if l_html != "" -%}
+    {%- if links_count > 0 -%}{%- assign links_html = links_html | append: " · " -%}{%- endif -%}
+    {%- assign links_html = links_html | append: l_html -%}
+    {%- assign links_count = links_count | plus: 1 -%}
+  {%- endif -%}
+{%- endfor -%}

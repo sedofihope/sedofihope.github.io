@@ -442,17 +442,8 @@ section, #top { scroll-margin-top: calc(var(--nav-h) + 1rem); }
 .links .icon,
 .location .icon { color: var(--muted); }
 
-/* Institutional address first, personal one below it, smaller */
-.links .email-primary,
-.links .email-secondary { flex-basis: 100%; }
-
-.links .email-secondary {
-  margin-top: -0.35rem;
-  padding-left: calc(1rem + 0.45rem);
-  font-size: 0.8125rem;
-}
-
-.site-footer .email-secondary { font-size: 0.8125rem; }
+/* The address sits on its own line */
+.links .email-primary { flex-basis: 100%; }
 
 /* Content */
 .content { max-width: var(--content-w); min-width: 0; }
@@ -604,6 +595,8 @@ main ul {
 }
 
 .site-footer p { margin: 0 0 0.25rem; }
+
+.site-footer .footer-meta { color: var(--muted); }
 
 /* ==========================================================================
    Medium screens and up
