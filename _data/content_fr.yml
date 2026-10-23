@@ -114,7 +114,7 @@ research:
 news:
   - date: octobre 2026
     title: CARI 2026
-    text: Présentation de notre article sur la détection de vulnérabilités par graphes à la 18e Conférence Africaine sur la Recherche en Informatique et en Mathématiques Appliquées, à l'Université d'Abomey-Calavi, du 21 au 24 octobre. CARI est le principal forum panafricain de recherche en informatique et mathématiques appliquées.
+    text: Présentation de notre article sur la détection de vulnérabilités par graphes à la 18e Conférence Africaine sur la Recherche en Informatique et en Mathématiques Appliquées, au siège de la Fondation Sèmè City à Cotonou, du 21 au 24 octobre. CARI est le principal forum panafricain de recherche en informatique et mathématiques appliquées.
     links:
       - label: cari-conf.bj
         url: https://cari-conf.bj/
@@ -131,7 +131,7 @@ news:
       - label: bwai-ifri-uac.bj
         url: https://bwai-ifri-uac.bj
       - label: Diapositives (PDF)
-        file: /assets/slides-bwai-2025.pdf
+        file: /assets/communications/slides-bwai-2025.pdf
   - date: octobre 2025
     title: Troisième prix au Hackathon IA de l'ASIN
     text: Troisième place au hackathon d'intelligence artificielle organisé par l'Agence des Systèmes d'Information et du Numérique (ASIN Bénin){count_clause}.
@@ -145,7 +145,7 @@ news:
         url: https://school.a4cp.org/summer2025/
   - date: juin 2025
     title: CITA 2025 et formation en télédétection
-    text: Participation à la 3e Conférence Internationale sur les Technologies de l'Information et de la Communication (CITA) de l'Académie Nationale des Sciences, Arts et Lettres du Bénin (ANSALB), tenue à Cotonou du 26 au 27 juin 2025 sur le thème « Technologies émergentes et agriculture durable », et suivi de l'atelier pratique « Drones et télédétection pour une agriculture durable ». C'est le domaine sur lequel s'appuient aujourd'hui mes travaux de thèse.
+    text: Participation à la 3e Conférence Internationale sur les Technologies de l'Information et de la Communication (CITA) de l'Académie Nationale des Sciences, Arts et Lettres du Bénin (ANSALB), tenue à Cotonou du 26 au 27 juin 2025 sur le thème « Technologies émergentes et agriculture durable », et suivi de l'atelier pratique « Drones et télédétection pour une agriculture durable ».
     links:
       - label: cita-ansalb.bj
         url: https://www.cita-ansalb.bj/2025
@@ -182,7 +182,7 @@ publications:
 # enregistrement) : `label` plus soit `url` (page web), soit `file`
 # (document du dépôt, masqué tant que le fichier n'existe pas).
 talks:
-  - title: "L'intelligence artificielle au service de la détection des vulnérabilités logicielles : état de l'art et étude de cas VulHGT"
+  - title: "L'intelligence artificielle au service de la détection des vulnérabilités logicielles"
     title_lang: fr
     kind: poster
     # status: accepted
@@ -202,19 +202,22 @@ talks:
       - name: Sèdofi Hope Lanmayikpohoue
         me: true
     venue: 3e Colloque Scientifique International de l'UNSTIM, campus universitaire d'Abomey, Bénin, 13 au 16 octobre 2026.
+    links:
+      - label: Diapositives (PDF)
+        file: /assets/communications/slides-csi-unstim-2026.pdf
   - title: Créez votre chatbot documentaire avec le RAG
     kind: atelier
     venue: Benin Workshop on Artificial Intelligence (BWAI 2025), Université d'Abomey-Calavi, 17 au 21 novembre 2025.
     links:
       - label: Diapositives (PDF)
-        file: /assets/slides-bwai-2025.pdf
+        file: /assets/communications/slides-bwai-2025.pdf
 
 teaching:
   role: Assistant d'enseignement
   place: UNSTIM, Bénin
   period: février 2025 à aujourd'hui
-  courses: Algorithmique ; programmation Python (CPGE, première année) ; méthodes numériques avec MATLAB et Octave (CPGE, deuxième année).
-  other: Participation à la rédaction des notes de cours, à la conception d'exercices, à la correction des évaluations et à l'encadrement de projets étudiants et de stagiaires.
+  courses: Algorithmique ; programmation Python ; méthodes numériques avec MATLAB et Octave.
+  other: Participation à la rédaction des notes de cours, à la conception d'exercices, à la correction des évaluations et à l'encadrement de projets étudiants.
 
 awards:
   - date: octobre 2025
@@ -243,14 +246,14 @@ education:
       - Encadré par le Dr Ing. M. Géraud Azehoun Pazou, le Dr Ing. Emery K. Assogba, le Dr Ing. John O. R. Aoga et le Dr M. Abel Konnon.
     file:
       label: Télécharger le mémoire (PDF)
-      path: /assets/memoire-ingenieur.pdf
+      path: /assets/thesis/memoire-ingenieur.pdf
   - period: 2019 à 2021
     text: Classes préparatoires aux écoles d'ingénieur, Sciences et Techniques de l'Ingénieur, INSPEI, Abomey, Bénin.
 
 experience:
   - period: août 2025 à aujourd'hui
     text: "**COSIT BENIN**, Abomey-Calavi. Développeur spécialiste en cybersécurité. Tests de sécurité d'applications web et développement mobile."
-  - period: janvier 2025 à août 2025
+  - period: janvier 2025 à octobre 2025
     text: "**EMES SARL**, Cotonou. Développeur backend et IA. Backend de microservice, API REST de traitement de données, recherches sur les systèmes RAG."
   - period: août 2023 à octobre 2023
     text: "**MIFY SARL**, Abomey-Calavi. Développeur mobile et recherche sur la technologie blockchain, stage."

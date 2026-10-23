@@ -59,3 +59,4 @@ exclude:
   - .jekyll-cache
   # Local conversation exports (gitignored, may contain private details)
   - 20*.txt
+  - 20*.md

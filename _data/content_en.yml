@@ -122,7 +122,7 @@ research:
 news:
   - date: October 2026
     title: CARI 2026
-    text: Presentation of our paper on graph-based vulnerability detection at the 18th African Conference on Research in Computer Science and Applied Mathematics, held at the University of Abomey-Calavi from 21 to 24 October. CARI is the main pan-African forum for research in computer science and applied mathematics.
+    text: Presentation of our paper on graph-based vulnerability detection at the 18th African Conference on Research in Computer Science and Applied Mathematics, held at the Sèmè City Foundation headquarters in Cotonou from 21 to 24 October. CARI is the main pan-African forum for research in computer science and applied mathematics.
     links:
       - label: cari-conf.bj
         url: https://cari-conf.bj/
@@ -139,7 +139,7 @@ news:
       - label: bwai-ifri-uac.bj
         url: https://bwai-ifri-uac.bj
       - label: Slides (PDF)
-        file: /assets/slides-bwai-2025.pdf
+        file: /assets/communications/slides-bwai-2025.pdf
   - date: October 2025
     title: Third prize at the ASIN AI Hackathon
     text: Third place at the artificial intelligence hackathon organised by the Agency for Information Systems and Digital Technology (ASIN Benin){count_clause}.
@@ -153,7 +153,7 @@ news:
         url: https://school.a4cp.org/summer2025/
   - date: June 2025
     title: CITA 2025 and remote sensing training
-    text: Attended the 3rd International Conference on Information and Communication Technologies (CITA) of Benin's National Academy of Sciences, Arts and Letters (ANSALB), held in Cotonou from 26 to 27 June 2025 under the theme "Emerging Technologies and Sustainable Agriculture", and took part in the practical workshop on drones and remote sensing for sustainable agriculture. This is the field my doctoral work now builds on.
+    text: Attended the 3rd International Conference on Information and Communication Technologies (CITA) of Benin's National Academy of Sciences, Arts and Letters (ANSALB), held in Cotonou from 26 to 27 June 2025 under the theme "Emerging Technologies and Sustainable Agriculture", and took part in the practical workshop on drones and remote sensing for sustainable agriculture.
     links:
       - label: cita-ansalb.bj
         url: https://www.cita-ansalb.bj/2025
@@ -194,7 +194,7 @@ publications:
 # `label` plus either `url` for a web page or `file` for a document in the
 # repository, hidden until the file exists.
 talks:
-  - title: "L'intelligence artificielle au service de la détection des vulnérabilités logicielles : état de l'art et étude de cas VulHGT"
+  - title: "L'intelligence artificielle au service de la détection des vulnérabilités logicielles"
     title_lang: fr
     kind: poster
     # status: accepted
@@ -214,20 +214,23 @@ talks:
       - name: Sèdofi Hope Lanmayikpohoue
         me: true
     venue: 3rd International Scientific Colloquium of UNSTIM, Abomey campus, Benin, 13 to 16 October 2026.
+    links:
+      - label: Slides (PDF)
+        file: /assets/communications/slides-csi-unstim-2026.pdf
   - title: "Créez votre chatbot documentaire avec le RAG"
     title_lang: fr
     kind: workshop
     venue: Benin Workshop on Artificial Intelligence (BWAI 2025), University of Abomey-Calavi, 17 to 21 November 2025.
     links:
       - label: Slides (PDF)
-        file: /assets/slides-bwai-2025.pdf
+        file: /assets/communications/slides-bwai-2025.pdf
 
 teaching:
   role: Teaching Assistant
   place: UNSTIM, Benin
   period: February 2025 to present
-  courses: Algorithmics; Python programming (CPGE, first year); Numerical methods with MATLAB and Octave (CPGE, second year).
-  other: Also involved in the writing of course notes, in exercise design and exam marking, and in the supervision of student projects and interns.
+  courses: Algorithmics; Python programming; Numerical methods with MATLAB and Octave.
+  other: Also involved in the writing of course notes, in exercise design and exam marking, and in the supervision of student projects.
 
 awards:
   - date: October 2025
@@ -258,14 +261,14 @@ education:
       - Supervised by Dr M. Géraud Azehoun Pazou, Dr Emery K. Assogba, Dr John O. R. Aoga and Dr M. Abel Konnon.
     file:
       label: Download the thesis (PDF)
-      path: /assets/memoire-ingenieur.pdf
+      path: /assets/thesis/memoire-ingenieur.pdf
   - period: 2019 to 2021
     text: Preparatory classes for engineering schools (CPGE), Engineering Sciences and Techniques, INSPEI, Abomey, Benin.
 
 experience:
   - period: August 2025 to present
     text: "**COSIT BENIN**, Abomey-Calavi. Developer specialised in cybersecurity. Web application security testing and mobile development."
-  - period: January 2025 to August 2025
+  - period: January 2025 to October 2025
     text: "**EMES SARL**, Cotonou. Backend and AI developer. Microservice backend, REST API for data processing, research on retrieval-augmented generation."
   - period: August 2023 to October 2023
     text: "**MIFY SARL**, Abomey-Calavi. Mobile developer and research on blockchain technology, internship."

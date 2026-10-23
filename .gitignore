@@ -6,3 +6,4 @@ _site/
 vendor/
 Gemfile.lock
 20*.txt
+20*.md
