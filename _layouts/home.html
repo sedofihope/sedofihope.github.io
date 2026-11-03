@@ -48,7 +48,6 @@ layout: default
         <section id="publications" aria-labelledby="publications-h">
           <h2 id="publications-h">{{ c.sections.publications }}</h2>
           <p class="pubs-note">{% include icon.html name="corresponding" %}<span>{{ c.ui.corresponding }}</span></p>
-          <!-- <p class="pubs-note">{% include icon.html name="email" %}<span>{{ c.ui.corresponding }}</span></p> -->
 {%- assign groups = "conference,journal" | split: "," %}
 {%- for g in groups %}
 {%- if g == "conference" %}{% assign items = pubs_conf %}{% assign label = c.publications.conference_label %}{% else %}{% assign items = pubs_journal %}{% assign label = c.publications.journal_label %}{% endif %}
