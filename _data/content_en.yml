@@ -189,7 +189,7 @@ publications:
         - name: Miton Abel Konnon
       reference: "In *Proceedings of the 18th African Conference on Research in Computer Science and Applied Mathematics (CARI 2026)*, Abomey-Calavi, Benin, 21 to 24 October 2026. Lecture Notes in Computer Science, Springer."
       pdf: "" # e.g. /assets/publications/vulhgt-cari2026.pdf
-      slides: "" # e.g. /assets/publications/vulhgt-cari2026-slides.pdf
+      slides: "/assets/publications/slides-cari-2026.pdf" # e.g. /assets/publications/vulhgt-cari2026-slides.pdf
       doi: "" # e.g. 10.1007/...
   journal: []
 

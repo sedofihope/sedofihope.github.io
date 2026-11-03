@@ -11,6 +11,7 @@
       {%- if forloop.length > 2 %}, and {% else %} and {% endif -%}
     {%- else %}, {% endif -%}
   {%- endunless -%}
-  {%- if a.corresponding -%}<span class="corresponding" title="{{ c.ui.corresponding }}" aria-label="{{ c.ui.corresponding }}">{% include icon.html name="email" %}</span>{%- endif -%}
+  <!-- {%- if a.corresponding -%}<span class="corresponding" title="{{ c.ui.corresponding }}" aria-label="{{ c.ui.corresponding }}">{% include icon.html name="email" %}</span>{%- endif -%} -->
   {%- if a.me -%}<strong style="text-decoration: underline">{{ a.name }}</strong>{%- else -%}{{ a.name }}{%- endif -%}
+  {%- if a.corresponding -%}<span class="corresponding" title="{{ c.ui.corresponding }}" aria-label="{{ c.ui.corresponding }}">{% include icon.html name="corresponding" %}</span>{%- endif -%}
 {%- endfor -%}

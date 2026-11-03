@@ -28,7 +28,7 @@ ui:
   all_news: Toutes les actualités
   pdf: PDF
   doi: DOI
-  slides: Diapos
+  slides: Diapositives
   corresponding: Auteur correspondant
   link: Lien
   links: Liens
@@ -180,7 +180,7 @@ publications:
         - name: Miton Abel Konnon
       reference: "In *Proceedings of the 18th African Conference on Research in Computer Science and Applied Mathematics (CARI 2026)*, Abomey-Calavi, Benin, 21 to 24 October 2026. Lecture Notes in Computer Science, Springer."
       pdf: ""
-      slides: ""
+      slides: "/assets/publications/slides-cari-2026.pdf"
       doi: ""
   journal: []
 
