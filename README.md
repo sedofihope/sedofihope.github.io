@@ -59,12 +59,26 @@ is inserted automatically before `: ; ? !` and inside `« »`.
 Each entry has a `status`: `accepted` ("Accepted, to appear", or "Accepted
 abstract" for a communication), `in_press` ("In press") or `published` (no
 label). Titles and bibliographic references are not translated. The site
-owner is marked `me: true` in `authors` and shown in bold.
+owner is marked `me: true` in `authors` and shown in bold; the corresponding
+author is marked `corresponding: true` and gets an envelope before the name,
+explained by a legend under the list.
+
+A publication may carry `pdf` and `slides` (documents in
+`/assets/publications/`) and a `doi`: they are shown only when set, and the
+files only when they exist. The order on the page is PDF, Slides, DOI.
 
 A communication may carry `links` to attach resources (slides, poster,
 recording): a `label` plus either a `url` for a web page or a `file` for a
 document in the repository, exactly as in news. File links stay hidden until
 the file exists.
+
+## Teaching and experience
+
+Both are lists, shown in file order, most recent first. A teaching entry has
+a `role`, a `place`, a `period`, `courses` and `other`. An experience entry
+has a `period`, a `role` (shown in bold), an `org`, a `place` and a `text`.
+Only `period` is required, the other fields are shown when set. A teaching
+section with no visible entry is hidden, together with its navigation link.
 
 ## News
 

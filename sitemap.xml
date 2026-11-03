@@ -14,7 +14,7 @@ layout: null
 {%- for l in languages %}
   <url>
     <loc>{{ l.url | append: suffix | absolute_url }}</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <!-- <lastmod>{{ site.time | date_to_xmlschema }}</lastmod> -->
 {%- for alt in languages %}
     <xhtml:link rel="alternate" hreflang="{{ alt.code }}" href="{{ alt.url | append: suffix | absolute_url }}"/>
 {%- endfor %}

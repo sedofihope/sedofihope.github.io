@@ -44,6 +44,7 @@ layout: default
 {%- endif %}
 
 {%- if pubs_count > 0 %}
+{%- assign has_corresponding = false %}
         <section id="publications" aria-labelledby="publications-h">
           <h2 id="publications-h">{{ c.sections.publications }}</h2>
 {%- assign groups = "conference,journal" | split: "," %}
@@ -54,8 +55,10 @@ layout: default
           <ul class="pubs">
 {%- for p in items %}
 {%- assign p_status = c.ui.pub_status[p.status] %}
-{%- include file.html path=p.pdf %}
+{%- include file.html path=p.pdf %}{% assign p_has_pdf = file_found %}
+{%- include file.html path=p.slides %}{% assign p_has_slides = file_found %}
 {%- assign p_has_doi = false %}{% if p.doi and p.doi != "" %}{% assign p_has_doi = true %}{% endif %}
+{%- if p.authors %}{% for a in p.authors %}{% if a.corresponding %}{% assign has_corresponding = true %}{% endif %}{% endfor %}{% endif %}
             <li class="pub">
               <div class="pub-side">
                 <span class="venue">{{ p.venue }}</span>
@@ -67,8 +70,8 @@ layout: default
                 <p class="pub-title">{{ p.title }}</p>
                 <p class="pub-authors">{% include authors.html authors=p.authors style="and" %}.</p>
                 <p class="pub-ref">{% include md.html text=p.reference %}</p>
-{%- if file_found or p_has_doi %}
-                <p class="pub-links">{% if file_found %}<a href="{{ p.pdf | relative_url }}" type="application/pdf" target="_blank" rel="noopener">{{ c.ui.pdf }}</a>{% endif %}{% if file_found and p_has_doi %} · {% endif %}{% if p_has_doi %}<a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">{{ c.ui.doi }}</a>{% endif %}</p>
+{%- if p_has_pdf or p_has_slides or p_has_doi %}
+                <p class="pub-links">{% if p_has_pdf %}<a href="{{ p.pdf | relative_url }}" type="application/pdf" target="_blank" rel="noopener">{{ c.ui.pdf }}</a>{% endif %}{% if p_has_slides %}{% if p_has_pdf %} · {% endif %}<a href="{{ p.slides | relative_url }}" type="application/pdf" target="_blank" rel="noopener">{{ c.ui.slides }}</a>{% endif %}{% if p_has_doi %}{% if p_has_pdf or p_has_slides %} · {% endif %}<a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">{{ c.ui.doi }}</a>{% endif %}</p>
 {%- endif %}
               </div>
             </li>
@@ -76,6 +79,9 @@ layout: default
           </ul>
 {%- endif %}
 {%- endfor %}
+{%- if has_corresponding %}
+          <p class="pubs-note">{% include icon.html name="email" %}<span>{{ c.ui.corresponding }}</span></p>
+{%- endif %}
         </section>
 {%- endif %}
 
@@ -89,7 +95,7 @@ layout: default
             <li>
               <p><strong{% if t.title_lang and t.title_lang != page.lang_key %} lang="{{ t.title_lang }}"{% endif %}>{{ t.title }}</strong>{% if t.kind %} ({{ t.kind }}){% endif %}.{% if t_status %} <span class="status">{{ t_status }}</span>{% endif %}</p>
 {%- if t.authors %}
-              <p>{% include authors.html authors=t.authors %}.</p>
+              <p class="talk-authors">{% include authors.html authors=t.authors %}.</p>
 {%- endif %}
               <p class="talk-venue">{% include md.html text=t.venue %}</p>
 {%- if links_count > 0 %}
@@ -101,12 +107,24 @@ layout: default
         </section>
 {%- endif %}
 
-{%- if c.teaching %}
+{%- if teaching.size > 0 %}
         <section id="teaching" aria-labelledby="teaching-h">
           <h2 id="teaching-h">{{ c.sections.teaching }}</h2>
-          <p><strong>{{ c.teaching.role }}</strong>, {{ c.teaching.place }} <span class="muted">({{ c.teaching.period }})</span></p>
-          <p>{% include md.html text=c.teaching.courses %}</p>
-          <p>{% include md.html text=c.teaching.other %}</p>
+          <ul class="dated">
+{%- for t in teaching %}
+            <li><span class="date">{{ t.period }}</span><div class="entry">
+{%- if t.role or t.place %}
+              <p>{% if t.role %}<strong>{{ t.role }}</strong>{% endif %}{% if t.place %}{% if t.role %}, {% endif %}{{ t.place }}{% endif %}</p>
+{%- endif %}
+{%- if t.courses %}
+              <p>{% include md.html text=t.courses %}</p>
+{%- endif %}
+{%- if t.other %}
+              <p>{% include md.html text=t.other %}</p>
+{%- endif %}
+            </div></li>
+{%- endfor %}
+          </ul>
         </section>
 {%- endif %}
 
@@ -145,7 +163,11 @@ layout: default
           <h2 id="experience-h">{{ c.sections.experience }}</h2>
           <ul class="dated">
 {%- for e in experience %}
-            <li><span class="date">{{ e.period }}</span><span class="entry">{% include md.html text=e.text %}</span></li>
+            <li><span class="date">{{ e.period }}</span><div class="entry">
+{%- if e.role or e.text %}
+              <p>{% if e.role %}<strong>{{ e.role }}</strong>{% if e.org %}, {{ e.org }}{% endif %}{% if e.place %}, {{ e.place }}{% endif %}{% if e.text %}. {% else %}.{% endif %}{% endif %}{% if e.text %}{% include md.html text=e.text %}{% endif %}</p>
+{%- endif %}
+            </div></li>
 {%- endfor %}
           </ul>
         </section>

@@ -58,13 +58,29 @@
     "@type": "ProfilePage",
     "url": {{ page_url | jsonify }},
     "inLanguage": {{ c.lang | jsonify }},
+{%- if site.created %}
     "dateCreated": {{ site.created | date_to_xmlschema | jsonify }},
+{%- endif %}
     "dateModified": {{ site.time | date_to_xmlschema | jsonify }},
     "mainEntity": {
       "@type": "Person",
       "@id": {{ '/#person' | absolute_url | jsonify }},
       "name": {{ site.author.name | jsonify }},
-      "alternateName": {{ site.author.name_ascii | jsonify }},
+      "alternateName": [
+        {{ site.author.name_ascii | jsonify }},
+        "Sedofi Hope Lanmayikpohoué",
+        "Sèdofi Hope Lanmayikpohoué",
+        "Sedofi Hope LANMAYIKPOHOUÉ",
+        "Sedofi Hope LANMAYIKPOHOUE",
+        "Sèdofi Hope LANMAYIKPOHOUE",
+        "Sèdofi Hope LANMAYIKPOHOUÉ",
+        "Hope Lanmayikpohoué",
+        "Hope Lanmayikpohoue",
+        "Hope LANMAYIKPOHOUE",
+        "Hope LANMAYIKPOHOUÉ",
+        "Sèdofi Hope",
+        "Sedofi Hope"
+      ],
       "givenName": {{ site.author.given_name | jsonify }},
       "familyName": {{ site.author.family_name | jsonify }},
       "url": {{ '/' | absolute_url | jsonify }},
@@ -79,11 +95,18 @@
         "name": {{ c.jsonld.affiliation | jsonify }},
         "url": "https://www.unstim.bj"
       },
-      "alumniOf": {
-        "@type": "CollegeOrUniversity",
-        "name": {{ c.jsonld.alumni_of | jsonify }},
-        "url": "https://ensgmm.unstim.bj"
-      },
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": {{ c.jsonld.alumni_of | jsonify }},
+          "url": "https://ensgmm.unstim.bj"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Institut National Supérieur des Classes Préparatoires aux Études d'Ingénieur (INSPEI)",
+          "url": "https://inspei.unstim.bj"
+        }
+      ],
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Abomey-Calavi",

@@ -522,6 +522,7 @@ main ul {
 .talks li { margin-bottom: 0.9rem; }
 .talks li p { margin: 0 0 0.15rem; }
 .talk-venue { color: var(--muted); font-size: 0.9375rem; }
+.talk-authors { font-size: 0.9375rem; }
 
 /* Publication and abstract status: small, no colour, no background */
 .status {
@@ -585,6 +586,25 @@ main ul {
 .pub-title { font-weight: 600; }
 .pub-authors, .pub-ref { font-size: 0.9375rem; }
 .pub-ref { color: var(--muted); }
+
+/* Corresponding author: envelope before the name, legend under the list */
+.corresponding {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.15rem;
+  color: var(--muted);
+}
+
+.corresponding .icon { width: 0.85em; height: 0.85em; }
+
+.pubs-note {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
 
 /* Footer */
 .site-footer {
