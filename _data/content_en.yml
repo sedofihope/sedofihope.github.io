@@ -65,8 +65,20 @@ sidebar:
 
 jsonld:
   job_title: Doctoral student in Engineering Sciences (Artificial Intelligence) and teaching assistant in computer engineering
-  affiliation: National University of Sciences, Technologies, Engineering and Mathematics (UNSTIM)
-  alumni_of: National Higher School of Mathematical Engineering and Modelling (ENSGMM)
+  affiliation:
+    - name: National University of Sciences, Technologies, Engineering and Mathematics (UNSTIM)
+      url: https://www.unstim.bj
+  alumni_of:
+    - name: National Higher School of Mathematical Engineering and Modelling (ENSGMM)
+      url: https://ensgmm.unstim.bj
+    - name: Institut National Supérieur des Classes Préparatoires aux Études d'Ingénieur (INSPEI)
+      url: https://inspei.unstim.bj
+  member_of:
+    - name: FRIARE
+      url: https://friare.org
+  address:
+    locality: Abomey-Calavi
+    country: BJ
   knows_about:
     - AI for cybersecurity
     - Vulnerability detection in source code

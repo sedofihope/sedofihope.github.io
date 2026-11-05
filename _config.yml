@@ -6,7 +6,21 @@ baseurl: ""
 # Identity, shared by both language versions
 author:
   name: Sèdofi Hope Lanmayikpohoue
-  name_ascii: Sedofi Hope Lanmayikpohoue
+  # Name variants published as `alternateName` in the structured data.
+  alternate_names:
+    - Sedofi Hope Lanmayikpohoue
+    - Sedofi Hope Lanmayikpohoué
+    - Sèdofi Hope Lanmayikpohoué
+    - Sedofi Hope LANMAYIKPOHOUÉ
+    - Sedofi Hope LANMAYIKPOHOUE
+    - Sèdofi Hope LANMAYIKPOHOUE
+    - Sèdofi Hope LANMAYIKPOHOUÉ
+    - Hope Lanmayikpohoué
+    - Hope Lanmayikpohoue
+    - Hope LANMAYIKPOHOUE
+    - Hope LANMAYIKPOHOUÉ
+    - Sèdofi Hope
+    - Sedofi Hope
   given_name: Sèdofi Hope
   family_name: Lanmayikpohoue
   # Institutional address only; no personal address is published.

@@ -1,0 +1,13 @@
+{%- comment -%}
+  JSON array of organisations for the structured data in head.html.
+  Usage: {% include jsonld-orgs.html items=c.jsonld.alumni_of type="CollegeOrUniversity" %}
+{%- endcomment -%}
+[
+{%- for o in include.items %}
+        {
+          "@type": {{ include.type | jsonify }},
+          "name": {{ o.name | jsonify }},
+          "url": {{ o.url | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
+{%- endfor %}
+      ]

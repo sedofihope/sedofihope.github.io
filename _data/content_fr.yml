@@ -60,8 +60,20 @@ sidebar:
 
 jsonld:
   job_title: Doctorant en Sciences de l'Ingénieur (Intelligence Artificielle) et assistant d'enseignement en génie informatique
-  affiliation: Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques (UNSTIM)
-  alumni_of: École Nationale Supérieure de Génie Mathématique et Modélisation (ENSGMM)
+  affiliation:
+    - name: Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques (UNSTIM)
+      url: https://www.unstim.bj
+  alumni_of:
+    - name: École Nationale Supérieure de Génie Mathématique et Modélisation (ENSGMM)
+      url: https://ensgmm.unstim.bj
+    - name: Institut National Supérieur des Classes Préparatoires aux Études d'Ingénieur (INSPEI)
+      url: https://inspei.unstim.bj
+  member_of:
+    - name: FRIARE
+      url: https://friare.org
+  address:
+    locality: Abomey-Calavi
+    country: BJ
   knows_about:
     - IA pour la cybersécurité
     - Détection de vulnérabilités dans le code source

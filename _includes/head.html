@@ -67,19 +67,9 @@
       "@id": {{ '/#person' | absolute_url | jsonify }},
       "name": {{ site.author.name | jsonify }},
       "alternateName": [
-        {{ site.author.name_ascii | jsonify }},
-        "Sedofi Hope Lanmayikpohoué",
-        "Sèdofi Hope Lanmayikpohoué",
-        "Sedofi Hope LANMAYIKPOHOUÉ",
-        "Sedofi Hope LANMAYIKPOHOUE",
-        "Sèdofi Hope LANMAYIKPOHOUE",
-        "Sèdofi Hope LANMAYIKPOHOUÉ",
-        "Hope Lanmayikpohoué",
-        "Hope Lanmayikpohoue",
-        "Hope LANMAYIKPOHOUE",
-        "Hope LANMAYIKPOHOUÉ",
-        "Sèdofi Hope",
-        "Sedofi Hope"
+{%- for n in site.author.alternate_names %}
+        {{ n | jsonify }}{% unless forloop.last %},{% endunless %}
+{%- endfor %}
       ],
       "givenName": {{ site.author.given_name | jsonify }},
       "familyName": {{ site.author.family_name | jsonify }},
@@ -90,28 +80,22 @@
 {%- endif %}
       "description": {{ c.description | strip | jsonify }},
       "jobTitle": {{ c.jsonld.job_title | jsonify }},
-      "affiliation": {
-        "@type": "CollegeOrUniversity",
-        "name": {{ c.jsonld.affiliation | jsonify }},
-        "url": "https://www.unstim.bj"
-      },
-      "alumniOf": [
-        {
-          "@type": "CollegeOrUniversity",
-          "name": {{ c.jsonld.alumni_of | jsonify }},
-          "url": "https://ensgmm.unstim.bj"
-        },
-        {
-          "@type": "CollegeOrUniversity",
-          "name": "Institut National Supérieur des Classes Préparatoires aux Études d'Ingénieur (INSPEI)",
-          "url": "https://inspei.unstim.bj"
-        }
-      ],
+{%- if c.jsonld.affiliation %}
+      "affiliation": {% include jsonld-orgs.html items=c.jsonld.affiliation type="CollegeOrUniversity" %},
+{%- endif %}
+{%- if c.jsonld.alumni_of %}
+      "alumniOf": {% include jsonld-orgs.html items=c.jsonld.alumni_of type="CollegeOrUniversity" %},
+{%- endif %}
+{%- if c.jsonld.member_of %}
+      "memberOf": {% include jsonld-orgs.html items=c.jsonld.member_of type="Organization" %},
+{%- endif %}
+{%- if c.jsonld.address %}
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Abomey-Calavi",
-        "addressCountry": "BJ"
+        "addressLocality": {{ c.jsonld.address.locality | jsonify }},
+        "addressCountry": {{ c.jsonld.address.country | jsonify }}
       },
+{%- endif %}
       "knowsAbout": {{ c.jsonld.knows_about | jsonify }},
       "sameAs": [
         "https://orcid.org/{{ site.author.orcid }}",
