@@ -26,8 +26,9 @@
 {%- assign experience = c.experience | where_exp: "i", "i.draft != true" -%}
 {%- assign empty_list = "" | split: "" -%}
 {%- assign teaching = c.teaching | default: empty_list | where_exp: "i", "i.draft != true" -%}
+{%- assign service = c.service | default: empty_list | where_exp: "i", "i.draft != true" -%}
 
-{%- capture nav_ids -%}about{% if c.research.size > 0 %},research{% endif %}{% if news.size > 0 %},news{% endif %}{% if pubs_count > 0 %},publications{% endif %}{% if talks.size > 0 %},talks{% endif %}{% if teaching.size > 0 %},teaching{% endif %}{% if awards.size > 0 %},awards{% endif %}{% if education.size > 0 %},education{% endif %}{% if experience.size > 0 %},experience{% endif %}{% if c.skills != "" %},skills{% endif %}{%- endcapture -%}
+{%- capture nav_ids -%}about{% if c.research.size > 0 %},research{% endif %}{% if news.size > 0 %},news{% endif %}{% if pubs_count > 0 %},publications{% endif %}{% if talks.size > 0 %},talks{% endif %}{% if teaching.size > 0 %},teaching{% endif %}{% if awards.size > 0 %},awards{% endif %}{% if education.size > 0 %},education{% endif %}{% if service.size > 0 %},service{% endif %}{% if experience.size > 0 %},experience{% endif %}{% if c.skills != "" %},skills{% endif %}{%- endcapture -%}
 {%- assign nav_ids = nav_ids | split: "," -%}
 
 {%- comment -%} Section links are plain anchors on the home page, absolute elsewhere. {%- endcomment -%}

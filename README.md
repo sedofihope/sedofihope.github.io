@@ -72,13 +72,15 @@ recording): a `label` plus either a `url` for a web page or a `file` for a
 document in the repository, exactly as in news. File links stay hidden until
 the file exists.
 
-## Teaching and experience
+## Teaching, experience and service
 
-Both are lists, shown in file order, most recent first. A teaching entry has
-a `role`, a `place`, a `period`, `courses` and `other`. An experience entry
-has a `period`, a `role` (shown in bold), an `org`, a `place` and a `text`.
-Only `period` is required, the other fields are shown when set. A teaching
-section with no visible entry is hidden, together with its navigation link.
+All three are lists, shown in file order, most recent first. A teaching
+entry has a `role`, a `place`, a `period`, `courses` and `other`. An
+experience entry has a `period`, a `role` (shown in bold), an `org`, a
+`place` and a `text`. A service entry uses the same fields, plus optional
+`links` to the organisation's website. Only `period` is required, the other
+fields are shown when set. A section with no visible entry is hidden,
+together with its navigation link.
 
 ## News
 

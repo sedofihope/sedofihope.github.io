@@ -159,6 +159,25 @@ layout: default
         </section>
 {%- endif %}
 
+{%- if service.size > 0 %}
+        <section id="service" aria-labelledby="service-h">
+          <h2 id="service-h">{{ c.sections.service }}</h2>
+          <ul class="dated">
+{%- for s in service %}
+{%- include links.html links=s.links %}
+            <li><span class="date">{{ s.period }}</span><div class="entry">
+{%- if s.role or s.text %}
+              <p>{% if s.role %}<strong>{{ s.role }}</strong>{% if s.org %}, {{ s.org }}{% endif %}{% if s.place %}, {{ s.place }}{% endif %}{% if s.text %}. {% else %}.{% endif %}{% endif %}{% if s.text %}{% include md.html text=s.text %}{% endif %}</p>
+{%- endif %}
+{%- if links_count > 0 %}
+              <p class="entry-links">{{ links_html }}</p>
+{%- endif %}
+            </div></li>
+{%- endfor %}
+          </ul>
+        </section>
+{%- endif %}
+
 {%- if experience.size > 0 %}
         <section id="experience" aria-labelledby="experience-h">
           <h2 id="experience-h">{{ c.sections.experience }}</h2>

@@ -587,7 +587,7 @@ main ul {
 .pub-authors, .pub-ref { font-size: 0.9375rem; }
 .pub-ref { color: var(--muted); }
 
-/* Corresponding author: envelope before the name, legend under the list */
+/* Corresponding author: envelope after the name, legend before the list */
 .corresponding {
   display: inline-flex;
   align-items: center;

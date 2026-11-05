@@ -87,6 +87,7 @@ nav:
   awards: Awards
   education: Education
   experience: Experience
+  service: Service
   skills: Skills
 
 sections:
@@ -99,6 +100,7 @@ sections:
   awards: Awards and Competitions
   education: Education
   experience: Experience
+  service: Service
   skills: Technical Skills
 
 about: |
@@ -290,6 +292,17 @@ experience:
     org: MIFY SARL
     place: Abomey-Calavi
     text: Mobile applications development and research on blockchain technology (internship).
+
+# Associations and community roles. Same fields as experience, plus optional
+# `links` to the organisation's website (as in communications).
+service:
+  - period: January 2025 to present
+    role: Member, Innovation, Research and Development (IRD) department
+    org: FRIARE association for a responsible and efficient artificial intelligence
+    text: Contributions to the department's activities.
+    links: 
+      - label: friare.org
+        url: https://friare.org
 
 # Optional section. Set to "" to hide it.
 # skills: >-

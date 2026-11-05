@@ -22,7 +22,7 @@ author:
 
 # Documents hosted in the repository. Each link stays hidden until its file
 # exists. The CV follows the page language and falls back to the other one.
-photo: /assets/photo.jpg
+photo: /assets/images/photo.jpeg
 cv:
   en: /assets/cv/cv-en.pdf
   fr: /assets/cv/cv-fr.pdf
@@ -36,7 +36,7 @@ news_archive: true
 # Top bar: at most `nav_max` sections, chosen in this order of priority
 # (they keep the page order in the bar); the others go to "Menu".
 nav_max: 6
-nav_priority: [about, research, publications, talks, teaching, news, awards, education, experience, skills]
+nav_priority: [about, research, publications, talks, teaching, news, awards, education, service, experience, skills]
 
 # Google Search Console: either drop the HTML verification file at the root
 # of the repository, or put the meta tag token here.
