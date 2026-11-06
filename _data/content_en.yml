@@ -71,7 +71,7 @@ jsonld:
   alumni_of:
     - name: National Higher School of Mathematical Engineering and Modelling (ENSGMM)
       url: https://ensgmm.unstim.bj
-    - name: Institut National Supérieur des Classes Préparatoires aux Études d'Ingénieur (INSPEI)
+    - name: National Higher Institute for Preparatory Classes for Engineering Studies (INSPEI)
       url: https://inspei.unstim.bj
   member_of:
     - name: FRIARE
