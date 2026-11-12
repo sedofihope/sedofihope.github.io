@@ -3,6 +3,9 @@
 <html lang="{{ c.lang }}">
 <head>
 {% include head.html %}
+{% if jekyll.environment == "production" %}
+  {% include analytics.html %}
+{% endif %}
 </head>
 <body>
   <a class="skip-link" href="#main">{{ c.ui.skip }}</a>

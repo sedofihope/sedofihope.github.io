@@ -44,7 +44,6 @@ layout: default
 {%- endif %}
 
 {%- if pubs_count > 0 %}
-{%- assign has_corresponding = false %}
         <section id="publications" aria-labelledby="publications-h">
           <h2 id="publications-h">{{ c.sections.publications }}</h2>
           <p class="pubs-note">{% include icon.html name="corresponding" %}<span>{{ c.ui.corresponding }}</span></p>
@@ -59,7 +58,6 @@ layout: default
 {%- include file.html path=p.pdf %}{% assign p_has_pdf = file_found %}
 {%- include file.html path=p.slides %}{% assign p_has_slides = file_found %}
 {%- assign p_has_doi = false %}{% if p.doi and p.doi != "" %}{% assign p_has_doi = true %}{% endif %}
-{%- if p.authors %}{% for a in p.authors %}{% if a.corresponding %}{% assign has_corresponding = true %}{% endif %}{% endfor %}{% endif %}
             <li class="pub">
               <div class="pub-side">
                 <span class="venue">{{ p.venue }}</span>
@@ -80,9 +78,6 @@ layout: default
           </ul>
 {%- endif %}
 {%- endfor %}
-<!-- {%- if has_corresponding %}
-          <p class="pubs-note">{% include icon.html name="corresponding" %}<span>{{ c.ui.corresponding }}</span></p>
-{%- endif %} -->
         </section>
 {%- endif %}
 
@@ -151,7 +146,7 @@ layout: default
               <p>{% include md.html text=line %}</p>
 {%- endfor %}
 {%- if e.file %}{% include file.html path=e.file.path %}{% if file_found %}
-              <p class="entry-links"><a href="{{ e.file.path | relative_url }}" type="application/pdf" target="_blank" rel="noopener">{% include icon.html name="cv" %}<span>{{ e.file.label }}</span></a></p>
+              <p class="entry-links"><a href="{{ e.file.path | relative_url }}" type="application/pdf" target="_blank" rel="noopener"><span>{{ e.file.label }}</span></a></p>
 {%- endif %}{% endif %}
             </div></li>
 {%- endfor %}

@@ -2,8 +2,9 @@
   Author list, the site owner (`me: true`) in bold.
   style="and": bibliographic style, "A, B, and C" (publications).
   Default: plain commas (communications).
-  `corresponding: true` puts an envelope before the name, explained by the
-  legend under the publications list (label in `c.ui.corresponding`).
+  `corresponding: true` puts an envelope after the name, explained by the
+  legend at the top of the publications section (label in
+  `c.ui.corresponding`).
 {%- endcomment -%}
 {%- for a in include.authors -%}
   {%- unless forloop.first -%}
@@ -11,7 +12,6 @@
       {%- if forloop.length > 2 %}, and {% else %} and {% endif -%}
     {%- else %}, {% endif -%}
   {%- endunless -%}
-  <!-- {%- if a.corresponding -%}<span class="corresponding" title="{{ c.ui.corresponding }}" aria-label="{{ c.ui.corresponding }}">{% include icon.html name="email" %}</span>{%- endif -%} -->
   {%- if a.me -%}<strong style="text-decoration: underline">{{ a.name }}</strong>{%- else -%}{{ a.name }}{%- endif -%}
-  {%- if a.corresponding -%}<span class="corresponding" title="{{ c.ui.corresponding }}" aria-label="{{ c.ui.corresponding }}">{% include icon.html name="corresponding" %}</span>{%- endif -%}
+  {%- if a.corresponding -%}<span class="corresponding" role="img" title="{{ c.ui.corresponding }}" aria-label="{{ c.ui.corresponding }}">{% include icon.html name="corresponding" %}</span>{%- endif -%}
 {%- endfor -%}

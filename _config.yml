@@ -62,7 +62,7 @@ nav_priority: [about, research, publications, talks, teaching, news, awards, edu
 
 # Google Search Console: either drop the HTML verification file at the root
 # of the repository, or put the meta tag token here.
-# google_site_verification: ""
+google_site_verification: "S4T9KQJ_LW6W4IDrcLkefRWh2q7zWSxO1p4_zz_9io0"
 
 # Build
 markdown: kramdown
@@ -79,7 +79,6 @@ exclude:
   - vendor
   - .bundle
   - .jekyll-cache
-  # Local conversation exports (gitignored, may contain private details)
   - 20*.txt
   - 20*.md
   - session*.md

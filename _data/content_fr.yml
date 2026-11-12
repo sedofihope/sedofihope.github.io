@@ -55,7 +55,7 @@ languages:
 sidebar:
   affiliation: UNSTIM, Bénin
   affiliation_url: https://www.unstim.bj
-  research_line: Travaux à l'intersection de l'IA, du génie logiciel et de la cybersécurité.
+  research_line: À la croisée de l'IA, du génie logiciel et de la cybersécurité.
   location: Abomey-Calavi, Bénin
 
 jsonld:
@@ -123,7 +123,7 @@ research:
   - label: IA pour la surveillance environnementale
     text: télédétection, modélisation hydrodynamique et apprentissage profond appliqués aux plans d'eau continentaux (projet de thèse)
   - label: Investigation numérique
-    text: axe émergent, notamment l'apport des méthodes d'apprentissage à l'analyse de preuves et à la conduite d'investigations
+    text: apport des méthodes d'apprentissage à l'analyse de preuves et à la conduite d'investigations
 
 # Ordre antichronologique, la plus récente en haut. Mêmes conventions que
 # content_en.yml (titre, texte, liens, {count_clause}).
@@ -134,6 +134,8 @@ news:
     links:
       - label: cari-conf.bj
         url: https://cari-conf.bj/
+      - label: Diapositives (PDF)
+        file: /assets/publications/slides-cari-2026.pdf
   - date: septembre 2026
     title: Deux résumés acceptés au 3e Colloque Scientifique International de l'UNSTIM
     text: Les deux résumés sont retenus pour le colloque qui se tient sur le campus universitaire d'Abomey du 13 au 16 octobre 2026, sur le thème des STIM et de l'innovation technologique pour le développement durable. Le premier, sur la détection des vulnérabilités logicielles par l'IA, est accepté en poster ; le second, sur la vision par ordinateur pour l'agriculture de précision, en communication orale.
@@ -297,7 +299,7 @@ experience:
 # facultatif vers le site de l'organisation (comme pour les communications).
 service:
   - period: janvier 2025 à aujourd'hui
-    role: Membre du département Innovation, Recherche et Développement (IRD)
+    role: Membre et contributeur, département Innovation, Recherche et Développement (IRD)
     org: Association FRIARE pour une intelligence artificielle responsable et efficiente
     text: Contributions aux activités du département.
     links: 

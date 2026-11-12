@@ -128,7 +128,7 @@ research:
   - label: AI for Environmental Monitoring
     text: remote sensing, hydrodynamic modelling and deep learning applied to inland water bodies (doctoral project)
   - label: Digital Forensics
-    text: an emerging interest, in particular the use of learning-based methods to support investigation and evidence analysis
+    text: use of learning-based methods to support investigation and evidence analysis
 
 # Reverse chronological order, most recent first. Each entry: a bold title,
 # two or three sentences, and optional links. A link with `file` instead of
@@ -142,6 +142,8 @@ news:
     links:
       - label: cari-conf.bj
         url: https://cari-conf.bj/
+      - label: Slides (PDF)
+        file: /assets/publications/slides-cari-2026.pdf
   - date: September 2026
     title: Two abstracts accepted at the 3rd UNSTIM International Scientific Colloquium
     text: Both abstracts have been accepted for the colloquium held on the Abomey campus from 13 to 16 October 2026, on the theme of science, technology, engineering, mathematics and innovation for sustainable development. The first, on AI-based detection of software vulnerabilities, was accepted as a poster; the second, on computer vision for precision agriculture, as an oral presentation.
@@ -309,7 +311,7 @@ experience:
 # `links` to the organisation's website (as in communications).
 service:
   - period: January 2025 to present
-    role: Member, Innovation, Research and Development (IRD) department
+    role: Member and Contributor, Innovation, Research and Development (IRD) department
     org: FRIARE association for a responsible and efficient artificial intelligence
     text: Contributions to the department's activities.
     links: 
